@@ -7,8 +7,6 @@
     <title>Próximamente | Depósitos y Piscinas de Poliéster</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Identity Services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root {
             --primary: #01488e;
@@ -67,7 +65,7 @@
             z-index: 1;
         }
         
-        /* HEADER MEJORADO */
+        /* HEADER MEJORADO - LOGO MÁS PEQUEÑO */
         header {
             display: flex;
             flex-direction: column;
@@ -84,15 +82,15 @@
         }
 
         .logo-img {
-            width: 200px;
+            width: 150px; /* Reducido de 200px */
             max-width: 100%;
             height: auto;
         }
         
         .logo-placeholder {
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
+            border-radius: 8px; /* Reducido de 12px */
+            padding: 0.8rem; /* Reducido de 1rem */
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 1rem;
@@ -100,7 +98,7 @@
         
         .logo-text {
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Reducido de 1.1rem */
             font-weight: 500;
             line-height: 1.4;
             max-width: 500px;
@@ -189,7 +187,30 @@
             text-align: center;
         }
         
-        /* SECCIÓN DE RESEÑAS MEJORADA */
+        /* SECCIÓN DE CONSTRUCCIÓN - CORREGIDA PARA MÓVILES */
+        .construction-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .construction-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .construction-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* SECCIÓN DE RESEÑAS MEJORADA - MÁS SIMPLE */
         .reviews-section {
             margin: 3rem 0;
             width: 100%;
@@ -282,49 +303,12 @@
             transform: translateY(-2px);
         }
         
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .user-name {
-            font-weight: 600;
-            flex: 1;
-        }
-        
-        .logout-btn {
-            background: none;
-            border: none;
-            color: var(--secondary);
-            cursor: pointer;
-            font-size: 0.9rem;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        
-        .logout-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
         .review-item {
             background-color: rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             padding: 1.2rem;
             margin-bottom: 1rem;
+            position: relative;
         }
         
         .review-header {
@@ -361,6 +345,28 @@
             text-align: center;
             padding: 2rem;
             opacity: 0.7;
+        }
+        
+        .delete-review {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .delete-review:hover {
+            background: rgba(255, 0, 0, 0.3);
         }
         
         /* CONTACTO MEJORADO */
@@ -470,8 +476,8 @@
             }
             
             .logo-text {
-                margin-left: 2rem;
-                font-size: 1.2rem;
+                margin-left: 1.5rem; /* Reducido de 2rem */
+                font-size: 1.1rem; /* Reducido de 1.2rem */
             }
             
             h1 {
@@ -548,16 +554,6 @@
             .star {
                 font-size: 1.5rem;
             }
-            
-            .user-info {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-            
-            .user-name {
-                flex: none;
-            }
         }
         
         /* Scrollbar personalizado */
@@ -595,10 +591,11 @@
             <h1 class="fade-in">Nueva Web en <span class="highlight">Construcción</span></h1>
             <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos a través de WhatsApp.</p>
             
-            <div class="main-content-title-services">
-                <div class="content-title-services">
-                    <p class="title-services">¡Disponible muy pronto!</p>
-                </div>
+            <!-- Sección de Construcción - Corregida para móviles -->
+            <div class="construction-section fade-in delay-2">
+                <h2>¡Disponible muy pronto!</h2>
+                <p>Nuestro nuevo sitio web está en desarrollo para ofrecerte una experiencia mejorada con información completa sobre nuestros productos y servicios.</p>
+                <p>Mientras tanto, no dudes en contactarnos para cualquier consulta o presupuesto.</p>
             </div>
             
             <div class="services fade-in delay-3">
@@ -628,40 +625,39 @@
                 </div>
             </div>
             
-            <!-- Sección de Reseñas -->
+            <!-- Sección de Reseñas - Simplificada -->
             <div class="reviews-section fade-in delay-4">
                 <h2>Reseñas de <span class="highlight">Clientes</span></h2>
                 <p>Comparte tu experiencia con nuestros productos y servicios</p>
                 
                 <div class="reviews-container">
                     <div class="review-form">
-                        <div id="authSection">
-                            <!-- Aquí se mostrará el botón de Google o la info del usuario -->
-                        </div>
-                        
-                        <div id="reviewFormSection" style="display: none;">
-                            <h3>Deja tu reseña</h3>
-                            <form id="reviewForm">
-                                <div class="form-group">
-                                    <label>Valoración</label>
-                                    <div class="rating-stars" id="ratingStars">
-                                        <span class="star" data-rating="1">★</span>
-                                        <span class="star" data-rating="2">★</span>
-                                        <span class="star" data-rating="3">★</span>
-                                        <span class="star" data-rating="4">★</span>
-                                        <span class="star" data-rating="5">★</span>
-                                    </div>
-                                    <input type="hidden" id="rating" name="rating" required>
+                        <h3>Deja tu reseña</h3>
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label for="reviewName">Tu nombre</label>
+                                <input type="text" id="reviewName" class="form-control" placeholder="Introduce tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Valoración</label>
+                                <div class="rating-stars" id="ratingStars">
+                                    <span class="star" data-rating="1">★</span>
+                                    <span class="star" data-rating="2">★</span>
+                                    <span class="star" data-rating="3">★</span>
+                                    <span class="star" data-rating="4">★</span>
+                                    <span class="star" data-rating="5">★</span>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <label for="comment">Comentario</label>
-                                    <textarea id="comment" class="form-control" placeholder="Cuéntanos tu experiencia..." required></textarea>
-                                </div>
-                                
-                                <button type="submit" class="btn">Publicar Reseña</button>
-                            </form>
-                        </div>
+                                <input type="hidden" id="rating" name="rating" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="comment">Comentario</label>
+                                <textarea id="comment" class="form-control" placeholder="Cuéntanos tu experiencia..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Publicar Reseña</button>
+                        </form>
                     </div>
                     
                     <div class="review-list">
@@ -699,9 +695,6 @@
     </div>
 
     <script>
-        // Configuración de Google Identity Services
-        const GOOGLE_CLIENT_ID = 'TU_CLIENT_ID_DE_GOOGLE'; // Reemplazar con tu Client ID real
-
         // Efectos de animación al cargar
         document.addEventListener('DOMContentLoaded', function() {
             const elements = document.querySelectorAll('.fade-in');
@@ -719,22 +712,15 @@
             initReviewSystem();
         });
 
-        // Sistema de reseñas con autenticación de Google
+        // Sistema de reseñas simplificado
         function initReviewSystem() {
-            const authSection = document.getElementById('authSection');
-            const reviewFormSection = document.getElementById('reviewFormSection');
             const stars = document.querySelectorAll('.star');
             const ratingInput = document.getElementById('rating');
             const reviewForm = document.getElementById('reviewForm');
             const reviewsList = document.getElementById('reviewsList');
             
-            let currentUser = null;
-            
             // Cargar reseñas existentes
             loadReviews();
-            
-            // Inicializar autenticación de Google
-            initializeGoogleAuth();
             
             // Sistema de estrellas
             stars.forEach(star => {
@@ -757,15 +743,11 @@
             reviewForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                if (!currentUser) {
-                    alert('Debes iniciar sesión para publicar una reseña');
-                    return;
-                }
-                
+                const name = document.getElementById('reviewName').value;
                 const rating = ratingInput.value;
                 const comment = document.getElementById('comment').value;
                 
-                if (!rating || !comment) {
+                if (!name || !rating || !comment) {
                     alert('Por favor, completa todos los campos');
                     return;
                 }
@@ -773,10 +755,7 @@
                 // Crear nueva reseña
                 const newReview = {
                     id: Date.now(),
-                    userId: currentUser.sub, // ID único de Google
-                    userName: currentUser.name,
-                    userEmail: currentUser.email,
-                    userPicture: currentUser.picture,
+                    userName: name,
                     rating: parseInt(rating),
                     comment: comment,
                     date: new Date().toLocaleDateString('es-ES')
@@ -796,96 +775,6 @@
                 alert('¡Gracias por tu reseña!');
             });
             
-            // Inicializar autenticación de Google
-            function initializeGoogleAuth() {
-                // Verificar si ya hay un usuario autenticado
-                const savedUser = localStorage.getItem('depofibraCurrentUser');
-                if (savedUser) {
-                    currentUser = JSON.parse(savedUser);
-                    showUserInfo();
-                    return;
-                }
-                
-                // Mostrar botón de Google
-                showGoogleButton();
-            }
-            
-            // Mostrar botón de Google
-            function showGoogleButton() {
-                authSection.innerHTML = `
-                    <p>Inicia sesión con Google para dejar una reseña</p>
-                    <div id="googleButtonContainer" style="display: flex; justify-content: center; margin: 1rem 0;"></div>
-                `;
-                
-                // Renderizar el botón de Google
-                window.google.accounts.id.initialize({
-                    client_id: GOOGLE_CLIENT_ID,
-                    callback: handleGoogleSignIn
-                });
-                
-                window.google.accounts.id.renderButton(
-                    document.getElementById('googleButtonContainer'),
-                    { 
-                        theme: "outline", 
-                        size: "large",
-                        text: "continue_with",
-                        width: 250
-                    }
-                );
-            }
-            
-            // Manejar inicio de sesión de Google
-            function handleGoogleSignIn(response) {
-                // Decodificar el token JWT
-                const responsePayload = decodeJWT(response.credential);
-                
-                currentUser = {
-                    sub: responsePayload.sub,
-                    name: responsePayload.name,
-                    email: responsePayload.email,
-                    picture: responsePayload.picture
-                };
-                
-                // Guardar usuario en localStorage
-                localStorage.setItem('depofibraCurrentUser', JSON.stringify(currentUser));
-                
-                // Mostrar información del usuario
-                showUserInfo();
-            }
-            
-            // Mostrar información del usuario autenticado
-            function showUserInfo() {
-                authSection.innerHTML = `
-                    <div class="user-info">
-                        <img src="${currentUser.picture}" alt="${currentUser.name}" class="user-avatar">
-                        <span class="user-name">${currentUser.name}</span>
-                        <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
-                    </div>
-                `;
-                
-                // Mostrar formulario de reseña
-                reviewFormSection.style.display = 'block';
-            }
-            
-            // Cerrar sesión
-            window.logout = function() {
-                currentUser = null;
-                localStorage.removeItem('depofibraCurrentUser');
-                showGoogleButton();
-                reviewFormSection.style.display = 'none';
-            };
-            
-            // Decodificar JWT
-            function decodeJWT(token) {
-                const base64Url = token.split('.')[1];
-                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-                
-                return JSON.parse(jsonPayload);
-            }
-            
             // Cargar reseñas desde localStorage
             function loadReviews() {
                 displayReviews();
@@ -894,18 +783,7 @@
             // Guardar reseña en localStorage
             function saveReview(review) {
                 let reviews = JSON.parse(localStorage.getItem('depofibraReviews')) || [];
-                
-                // Verificar si el usuario ya tiene una reseña
-                const existingReviewIndex = reviews.findIndex(r => r.userId === review.userId);
-                
-                if (existingReviewIndex !== -1) {
-                    // Actualizar reseña existente
-                    reviews[existingReviewIndex] = review;
-                } else {
-                    // Agregar nueva reseña
-                    reviews.unshift(review);
-                }
-                
+                reviews.unshift(review);
                 localStorage.setItem('depofibraReviews', JSON.stringify(reviews));
             }
             
@@ -923,6 +801,9 @@
                     const reviewElement = document.createElement('div');
                     reviewElement.className = 'review-item';
                     reviewElement.innerHTML = `
+                        <button class="delete-review" onclick="deleteReview(${review.id})">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="review-header">
                             <div class="review-author">${review.userName}</div>
                             <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
@@ -933,6 +814,16 @@
                     reviewsList.appendChild(reviewElement);
                 });
             }
+            
+            // Función global para eliminar reseñas
+            window.deleteReview = function(reviewId) {
+                if (confirm('¿Estás seguro de que quieres eliminar esta reseña?')) {
+                    let reviews = JSON.parse(localStorage.getItem('depofibraReviews')) || [];
+                    reviews = reviews.filter(review => review.id !== reviewId);
+                    localStorage.setItem('depofibraReviews', JSON.stringify(reviews));
+                    displayReviews();
+                }
+            };
         }
     </script>
 </body>
