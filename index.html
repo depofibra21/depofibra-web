@@ -807,16 +807,39 @@
             });
             
             // Cargar reseñas desde el servidor
-            async function loadReviews() {
-                try {
-                    const response = await fetch('api/reviews.php');
-                    const reviews = await response.json();
-                    
-                    displayReviews(reviews);
-                } catch (error) {
-                    reviewsList.innerHTML = '<div class="error">Error al cargar las reseñas</div>';
-                }
-            }
+async function loadReviews() {
+    try {
+        console.log('Intentando cargar reseñas...');
+        
+        // Primero probamos si el servidor responde
+        const testResponse = await fetch('test.php');
+        if (!testResponse.ok) {
+            throw new Error(`Error HTTP: ${testResponse.status}`);
+        }
+        const testData = await testResponse.json();
+        console.log('Test del servidor:', testData);
+        
+        // Ahora cargamos las reseñas
+        const response = await fetch('api/reviews.php');
+        if (!response.ok) {
+            throw new Error(`Error HTTP en reviews: ${response.status}`);
+        }
+        
+        const reviews = await response.json();
+        console.log('Reseñas cargadas:', reviews);
+        
+        displayReviews(reviews);
+    } catch (error) {
+        console.error('Error detallado:', error);
+        reviewsList.innerHTML = `
+            <div class="error">
+                <p>Error al cargar las reseñas:</p>
+                <p><strong>${error.message}</strong></p>
+                <p>Verifica que los archivos PHP estén en el servidor correctamente.</p>
+            </div>
+        `;
+    }
+}
             
             // Mostrar reseñas en la lista
             function displayReviews(reviews) {
