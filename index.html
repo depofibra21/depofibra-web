@@ -754,36 +754,67 @@
             });
             
             // Manejar envío del formulario
-            reviewForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('reviewName').value;
-                const email = document.getElementById('reviewEmail').value;
-                const rating = ratingInput.value;
-                const comment = document.getElementById('comment').value;
-                
-                if (!name || !rating || !comment) {
-                    showMessage('Por favor, completa todos los campos obligatorios', 'error');
-                    return;
-                }
-                
-                // Deshabilitar botón
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Publicando...';
-                
-                try {
-                    const response = await fetch('api/reviews.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            name: name,
-                            email: email,
-                            rating: rating,
-                            comment: comment
-                        })
-                    });
+reviewForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('reviewName').value;
+    const email = document.getElementById('reviewEmail').value;
+    const rating = ratingInput.value;
+    const comment = document.getElementById('comment').value;
+    
+    if (!name || !rating || !comment) {
+        showMessage('Por favor, completa todos los campos obligatorios', 'error');
+        return;
+    }
+    
+    // Deshabilitar botón
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Publicando...';
+    
+    try {
+        console.log('Enviando reseña:', { name, email, rating, comment });
+        
+        const response = await fetch('api/reviews.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                rating: rating,
+                comment: comment
+            })
+        });
+        
+        console.log('Respuesta del servidor:', response);
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        console.log('Resultado:', result);
+        
+        if (result.success) {
+            showMessage('¡Gracias por tu reseña! Se ha publicado correctamente.', 'success');
+            reviewForm.reset();
+            stars.forEach(star => star.classList.remove('active'));
+            ratingInput.value = '';
+            // Recargar las reseñas
+            loadReviews();
+        } else {
+            showMessage('Error: ' + result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Error completo:', error);
+        showMessage(`Error de conexión: ${error.message}. Verifica la consola para más detalles.`, 'error');
+    } finally {
+        // Rehabilitar botón
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Publicar Reseña';
+    }
+});
                     
                     const result = await response.json();
                     
