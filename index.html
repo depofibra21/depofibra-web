@@ -8,7 +8,6 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Tus estilos CSS existentes se mantienen igual */
         :root {
             --primary: #01488e;
             --primary-light: #3a6da8;
@@ -66,7 +65,7 @@
             z-index: 1;
         }
         
-        /* HEADER MEJORADO - LOGO MÁS PEQUEÑO */
+        /* HEADER */
         header {
             display: flex;
             flex-direction: column;
@@ -105,7 +104,7 @@
             max-width: 500px;
         }
         
-        /* CONTENIDO PRINCIPAL MEJORADO */
+        /* CONTENIDO PRINCIPAL */
         .main-content {
             display: flex;
             flex-direction: column;
@@ -146,7 +145,7 @@
             color: var(--secondary);
         }
         
-        /* SERVICIOS MEJORADOS */
+        /* SERVICIOS */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -188,7 +187,7 @@
             text-align: center;
         }
         
-        /* SECCIÓN DE CONSTRUCCIÓN - CORREGIDA PARA MÓVILES */
+        /* SECCIÓN DE CONSTRUCCIÓN */
         .construction-section {
             margin: 2rem 0;
             padding: 1.5rem;
@@ -211,36 +210,19 @@
             line-height: 1.6;
         }
         
-        /* SECCIÓN DE RESEÑAS MEJORADA */
-        .reviews-section {
+        /* FORMULARIO DE CONTACTO */
+        .contact-form-section {
             margin: 3rem 0;
             width: 100%;
-            max-width: 900px;
+            max-width: 600px;
         }
         
-        .reviews-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-        
-        .review-form {
+        .contact-form {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 2rem;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .review-list {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            max-height: 400px;
-            overflow-y: auto;
         }
         
         .form-group {
@@ -252,6 +234,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            color: white;
         }
         
         .form-control {
@@ -261,29 +244,18 @@
             border-radius: 8px;
             background-color: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(248, 181, 0, 0.3);
         }
         
         textarea.form-control {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
-        }
-        
-        .rating-stars {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            justify-content: center;
-        }
-        
-        .star {
-            font-size: 1.8rem;
-            color: #ddd;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        
-        .star.active {
-            color: var(--secondary);
         }
         
         .btn {
@@ -310,74 +282,28 @@
             transform: none;
         }
         
-        .review-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .review-author {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        
-        .review-rating {
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-        
-        .review-date {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 0.5rem;
-        }
-        
-        .review-text {
-            margin-top: 0.5rem;
-            line-height: 1.5;
-        }
-        
-        .no-reviews {
-            text-align: center;
-            padding: 2rem;
-            opacity: 0.7;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            opacity: 0.7;
-        }
-        
         .message {
             padding: 1rem;
             border-radius: 8px;
             margin: 1rem 0;
             text-align: center;
+            font-weight: 500;
         }
         
         .message.success {
             background-color: rgba(46, 204, 113, 0.2);
             border: 1px solid #27ae60;
+            color: #2ecc71;
         }
         
         .message.error {
             background-color: rgba(231, 76, 60, 0.2);
             border: 1px solid #c0392b;
+            color: #e74c3c;
         }
         
-        /* CONTACTO MEJORADO */
-        .contact-section {
+        /* CONTACTO RÁPIDO */
+        .quick-contact {
             margin: 2rem 0;
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
@@ -416,7 +342,29 @@
             font-size: 1.3rem;
         }
         
-        /* FOOTER MEJORADO */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .contact-method i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            width: 30px;
+        }
+        
+        /* FOOTER */
         footer {
             display: flex;
             flex-direction: column;
@@ -465,7 +413,7 @@
         .delay-4 { animation-delay: 0.8s; }
         .delay-5 { animation-delay: 1s; }
         
-        /* RESPONSIVE MEJORADO */
+        /* RESPONSIVE */
         @media (min-width: 768px) {
             .container {
                 padding: 2rem;
@@ -508,12 +456,9 @@
                 padding: 1.5rem;
             }
             
-            .reviews-container {
+            .contact-methods {
                 flex-direction: row;
-            }
-            
-            .review-form, .review-list {
-                flex: 1;
+                justify-content: center;
             }
             
             footer {
@@ -550,32 +495,9 @@
                 font-size: 0.9rem;
             }
             
-            .review-form, .review-list {
-                padding: 1rem;
+            .contact-form {
+                padding: 1.5rem;
             }
-            
-            .rating-stars {
-                gap: 0.3rem;
-            }
-            
-            .star {
-                font-size: 1.5rem;
-            }
-        }
-        
-        /* Scrollbar personalizado */
-        .review-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .review-list::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        
-        .review-list::-webkit-scrollbar-thumb {
-            background: var(--secondary);
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -596,9 +518,9 @@
         
         <main class="main-content">
             <h1 class="fade-in">Nueva Web en <span class="highlight">Construcción</span></h1>
-            <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos a través de WhatsApp.</p>
+            <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos a través de WhatsApp o usando el formulario.</p>
             
-            <!-- Sección de Construcción - Corregida para móviles -->
+            <!-- Sección de Construcción -->
             <div class="construction-section fade-in delay-2">
                 <h2>¡Disponible muy pronto!</h2>
                 <p>Nuestro nuevo sitio web está en desarrollo para ofrecerte una experiencia mejorada con información completa sobre nuestros productos y servicios.</p>
@@ -632,60 +554,71 @@
                 </div>
             </div>
             
-            <!-- Sección de Reseñas - Con sistema real -->
-            <div class="reviews-section fade-in delay-4">
-                <h2>Reseñas de <span class="highlight">Clientes</span></h2>
-                <p>Comparte tu experiencia con nuestros productos y servicios</p>
+            <!-- Formulario de Contacto -->
+            <div class="contact-form-section fade-in delay-4">
+                <h2>Contáctanos <span class="highlight">Directamente</span></h2>
+                <p>Envíanos un mensaje y te responderemos lo antes posible</p>
                 
-                <div class="reviews-container">
-                    <div class="review-form">
-                        <h3>Deja tu reseña</h3>
-                        <form id="reviewForm">
-                            <div class="form-group">
-                                <label for="reviewName">Tu nombre *</label>
-                                <input type="text" id="reviewName" class="form-control" placeholder="Introduce tu nombre" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="reviewEmail">Tu email (opcional)</label>
-                                <input type="email" id="reviewEmail" class="form-control" placeholder="tu@email.com">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Valoración *</label>
-                                <div class="rating-stars" id="ratingStars">
-                                    <span class="star" data-rating="1">★</span>
-                                    <span class="star" data-rating="2">★</span>
-                                    <span class="star" data-rating="3">★</span>
-                                    <span class="star" data-rating="4">★</span>
-                                    <span class="star" data-rating="5">★</span>
-                                </div>
-                                <input type="hidden" id="rating" name="rating" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="comment">Comentario *</label>
-                                <textarea id="comment" class="form-control" placeholder="Cuéntanos tu experiencia..." required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn" id="submitBtn">Publicar Reseña</button>
-                        </form>
-                        <div id="formMessage"></div>
-                    </div>
-                    
-                    <div class="review-list">
-                        <h3>Reseñas Recientes</h3>
-                        <div id="reviewsList">
-                            <div class="loading">Cargando reseñas...</div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Tu nombre *</label>
+                            <input type="text" id="contactName" class="form-control" placeholder="Introduce tu nombre completo" required>
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Tu email *</label>
+                            <input type="email" id="contactEmail" class="form-control" placeholder="tu@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactPhone">Teléfono (opcional)</label>
+                            <input type="tel" id="contactPhone" class="form-control" placeholder="+34 123 456 789">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactService">Servicio de interés</label>
+                            <select id="contactService" class="form-control">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="depositos">Depósitos de agua</option>
+                                <option value="piscinas">Piscinas</option>
+                                <option value="cubas">Cubas y tanques</option>
+                                <option value="fosas">Fosas sépticas</option>
+                                <option value="presupuesto">Solicitud de presupuesto</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Mensaje *</label>
+                            <textarea id="contactMessage" class="form-control" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                    <div id="formMessage"></div>
                 </div>
             </div>
             
-            <div class="contact-section fade-in delay-5">
-                <h2>¿Necesitas un presupuesto?</h2>
-                <p>Contáctanos directamente por WhatsApp</p>
-                <a href="https://wa.me/34642129233?text=Hola,%20me%20interesan%20sus%20productos" class="whatsapp-btn" target="_blank">
+            <!-- Contacto Rápido -->
+            <div class="quick-contact fade-in delay-5">
+                <h2>Contacto <span class="highlight">Rápido</span></h2>
+                <p>¿Prefieres contactarnos directamente?</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp: +34 642 129 233</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: depofibra21@gmail.com</span>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/34642129233?text=Hola,%20me%20interesan%20sus%20productos%20de%20depósitos%20y%20piscinas" class="whatsapp-btn" target="_blank">
                     <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
                 </a>
             </div>
@@ -720,182 +653,67 @@
                 });
             }, 100);
             
-            // Inicializar sistema de reseñas
-            initReviewSystem();
+            // Inicializar formulario de contacto
+            initContactForm();
         });
 
-        // Sistema de reseñas con base de datos real
-        function initReviewSystem() {
-            const stars = document.querySelectorAll('.star');
-            const ratingInput = document.getElementById('rating');
-            const reviewForm = document.getElementById('reviewForm');
-            const reviewsList = document.getElementById('reviewsList');
+        // Sistema de formulario de contacto
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
             const formMessage = document.getElementById('formMessage');
             
-            // Cargar reseñas existentes
-            loadReviews();
-            
-            // Sistema de estrellas
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    const rating = this.getAttribute('data-rating');
-                    ratingInput.value = rating;
-                    
-                    // Actualizar visualización de estrellas
-                    stars.forEach(s => {
-                        if (s.getAttribute('data-rating') <= rating) {
-                            s.classList.add('active');
-                        } else {
-                            s.classList.remove('active');
-                        }
-                    });
-                });
-            });
-            
             // Manejar envío del formulario
-reviewForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('reviewName').value;
-    const email = document.getElementById('reviewEmail').value;
-    const rating = ratingInput.value;
-    const comment = document.getElementById('comment').value;
-    
-    if (!name || !rating || !comment) {
-        showMessage('Por favor, completa todos los campos obligatorios', 'error');
-        return;
-    }
-    
-    // Deshabilitar botón
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Publicando...';
-    
-    try {
-        console.log('Enviando reseña:', { name, email, rating, comment });
-        
-        const response = await fetch('api/reviews.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                rating: rating,
-                comment: comment
-            })
-        });
-        
-        console.log('Respuesta del servidor:', response);
-        
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-        
-        const result = await response.json();
-        console.log('Resultado:', result);
-        
-        if (result.success) {
-            showMessage('¡Gracias por tu reseña! Se ha publicado correctamente.', 'success');
-            reviewForm.reset();
-            stars.forEach(star => star.classList.remove('active'));
-            ratingInput.value = '';
-            // Recargar las reseñas
-            loadReviews();
-        } else {
-            showMessage('Error: ' + result.message, 'error');
-        }
-    } catch (error) {
-        console.error('Error completo:', error);
-        showMessage(`Error de conexión: ${error.message}. Verifica la consola para más detalles.`, 'error');
-    } finally {
-        // Rehabilitar botón
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Publicar Reseña';
-    }
-});
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        showMessage('¡Gracias por tu reseña! Se ha publicado correctamente.', 'success');
-                        reviewForm.reset();
-                        stars.forEach(star => star.classList.remove('active'));
-                        ratingInput.value = '';
-                        // Recargar las reseñas
-                        loadReviews();
-                    } else {
-                        showMessage('Error: ' + result.message, 'error');
-                    }
-                } catch (error) {
-                    showMessage('Error de conexión. Inténtalo de nuevo.', 'error');
-                } finally {
-                    // Rehabilitar botón
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Publicar Reseña';
-                }
-            });
-            
-            // Cargar reseñas desde el servidor
-async function loadReviews() {
-    try {
-        console.log('Intentando cargar reseñas...');
-        
-        // Primero probamos si el servidor responde
-        const testResponse = await fetch('test.php');
-        if (!testResponse.ok) {
-            throw new Error(`Error HTTP: ${testResponse.status}`);
-        }
-        const testData = await testResponse.json();
-        console.log('Test del servidor:', testData);
-        
-        // Ahora cargamos las reseñas
-        const response = await fetch('api/reviews.php');
-        if (!response.ok) {
-            throw new Error(`Error HTTP en reviews: ${response.status}`);
-        }
-        
-        const reviews = await response.json();
-        console.log('Reseñas cargadas:', reviews);
-        
-        displayReviews(reviews);
-    } catch (error) {
-        console.error('Error detallado:', error);
-        reviewsList.innerHTML = `
-            <div class="error">
-                <p>Error al cargar las reseñas:</p>
-                <p><strong>${error.message}</strong></p>
-                <p>Verifica que los archivos PHP estén en el servidor correctamente.</p>
-            </div>
-        `;
-    }
-}
-            
-            // Mostrar reseñas en la lista
-            function displayReviews(reviews) {
-                if (reviews.length === 0) {
-                    reviewsList.innerHTML = '<div class="no-reviews">Aún no hay reseñas. ¡Sé el primero en opinar!</div>';
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('contactName').value;
+                const email = document.getElementById('contactEmail').value;
+                const phone = document.getElementById('contactPhone').value;
+                const service = document.getElementById('contactService').value;
+                const message = document.getElementById('contactMessage').value;
+                
+                if (!name || !email || !message) {
+                    showMessage('Por favor, completa todos los campos obligatorios (*)', 'error');
                     return;
                 }
                 
-                let html = '';
-                reviews.forEach(review => {
-                    const date = new Date(review.created_at).toLocaleDateString('es-ES');
-                    html += `
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div class="review-author">${review.user_name}</div>
-                                <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
-                            </div>
-                            <div class="review-date">${date}</div>
-                            <div class="review-text">${review.comment}</div>
-                        </div>
-                    `;
-                });
+                // Deshabilitar botón
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 
-                reviewsList.innerHTML = html;
-            }
+                try {
+                    // Usar Formspree para enviar el email
+                    const response = await fetch('https://formspree.io/f/mjvneraa', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            service: service,
+                            message: message,
+                            _subject: `Nuevo mensaje de ${name} - Depofibra`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showMessage('¡Gracias por tu mensaje! Te responderemos lo antes posible.', 'success');
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Error al enviar el mensaje');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error al enviar el mensaje. Por favor, intenta contactarnos por WhatsApp o email directamente.', 'error');
+                } finally {
+                    // Rehabilitar botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+                }
+            });
             
             // Mostrar mensajes
             function showMessage(text, type) {
