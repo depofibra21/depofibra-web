@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- METADATOS SEO OPTIMIZADOS -->
+    <title>Depofibra | Fabricantes de Depósitos y Piscinas de Poliéster | Hellín</title>
+    <meta name="description" content="Depofibra - Fabricantes especializados en depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio. Calidad y durabilidad garantizada.">
+    <meta name="keywords" content="depósitos poliéster, piscinas fibra vidrio, cubas, fosas sépticas, depósitos agua, Hellín, Albacete">
+    <meta name="author" content="Depofibra">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Depofibra | Fabricantes de Depósitos y Piscinas de Poliéster">
+    <meta property="og:description" content="Especialistas en depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://depofibra.es">
+    
+    <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="./images/iconos/LogoBlanco-removebg-preview.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/iconos/LogoBlanco-removebg-preview.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/iconos/LogoBlanco-removebg-preview.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/iconos/LogoBlanco-removebg-preview.ico">
-    <title>Próximamente | Depósitos y Piscinas de Poliéster</title>
+    
+    <!-- SCHEMA MARKUP PARA SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Depofibra",
+      "description": "Fabricantes de depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio",
+      "url": "https://depofibra.es",
+      "telephone": "+34-642-129-233",
+      "email": "depofibra21@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hellín",
+        "addressRegion": "Albacete",
+        "addressCountry": "ES"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "areaServed": "España"
+    }
+    </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -138,14 +172,55 @@
             opacity: 0.9;
         }
         
-        .main-content-title-services {
-            padding: 2rem 0;
+        /* BANNER PROMOCIONAL */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--secondary) 0%, #e6a700 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
-
-        .title-services {
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: var(--secondary);
+        
+        .promo-banner h2 {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .promo-banner p {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .promo-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .promo-feature {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .promo-feature i {
+            color: var(--primary);
+            margin-right: 0.5rem;
         }
         
         /* SERVICIOS */
@@ -213,98 +288,6 @@
             line-height: 1.6;
         }
         
-        /* FORMULARIO DE CONTACTO */
-        .contact-form-section {
-            margin: 3rem 0;
-            width: 100%;
-            max-width: 600px;
-        }
-        
-        .contact-form {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            background-color: white;
-            box-shadow: 0 0 0 3px rgba(248, 181, 0, 0.3);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .btn {
-            background-color: var(--secondary);
-            color: var(--dark);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .btn:hover {
-            background-color: #e6a700;
-            transform: translateY(-2px);
-        }
-        
-        .btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .message {
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
-            font-weight: 500;
-        }
-        
-        .message.success {
-            background-color: rgba(46, 204, 113, 0.2);
-            border: 1px solid #27ae60;
-            color: #2ecc71;
-        }
-        
-        .message.error {
-            background-color: rgba(231, 76, 60, 0.2);
-            border: 1px solid #c0392b;
-            color: #e74c3c;
-        }
-        
         /* CONTACTO RÁPIDO */
         .quick-contact {
             margin: 2rem 0;
@@ -359,6 +342,12 @@
             padding: 0.8rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
         }
         
         .contact-method i {
@@ -469,6 +458,10 @@
                 justify-content: space-between;
                 text-align: left;
             }
+            
+            .promo-banner h2 {
+                font-size: 2.2rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -498,8 +491,17 @@
                 font-size: 0.9rem;
             }
             
-            .contact-form {
+            .promo-banner {
                 padding: 1.5rem;
+            }
+            
+            .promo-banner h2 {
+                font-size: 1.5rem;
+            }
+            
+            .promo-features {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -513,7 +515,7 @@
         <header>
             <div class="logo">
                 <div class="logo-placeholder">
-                    <img src="images/EsloganConFondoOscuro-Photoroom.png" alt="Logo Depofibra" class="logo-img">
+                    <img src="images/EsloganConFondoOscuro-Photoroom.png" alt="Logo Depofibra - Fabricantes de depósitos y piscinas de poliéster" class="logo-img">
                 </div>
                 <div class="logo-text">Depósitos · Piscinas · Cubas · Fosas Sépticas</div>
             </div>
@@ -521,21 +523,42 @@
         
         <main class="main-content">
             <h1 class="fade-in">Nueva Web en <span class="highlight">Construcción</span></h1>
-            <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos a través de WhatsApp o usando el formulario.</p>
+            <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos directamente.</p>
+            
+            <!-- Banner Promocional -->
+            <div class="promo-banner fade-in delay-2">
+                <h2>¡Oferta Especial de Lanzamiento!</h2>
+                <p>Contacta ahora y obtén un <strong>10% de descuento</strong> en tu primer pedido</p>
+                
+                <div class="promo-features">
+                    <div class="promo-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Calidad Garantizada</span>
+                    </div>
+                    <div class="promo-feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Envío Rápido</span>
+                    </div>
+                    <div class="promo-feature">
+                        <i class="fas fa-award"></i>
+                        <span>Expertos en PRFV</span>
+                    </div>
+                </div>
+            </div>
             
             <!-- Sección de Construcción -->
-            <div class="construction-section fade-in delay-2">
+            <div class="construction-section fade-in delay-3">
                 <h2>¡Disponible muy pronto!</h2>
                 <p>Nuestro nuevo sitio web está en desarrollo para ofrecerte una experiencia mejorada con información completa sobre nuestros productos y servicios.</p>
                 <p>Mientras tanto, no dudes en contactarnos para cualquier consulta o presupuesto.</p>
             </div>
             
-            <div class="services fade-in delay-3">
+            <div class="services fade-in delay-4">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tint"></i>
                     </div>
-                    <div class="service-title">Depósitos</div>
+                    <div class="service-title">Depósitos de Agua</div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -547,7 +570,7 @@
                     <div class="service-icon">
                         <i class="fas fa-industry"></i>
                     </div>
-                    <div class="service-title">Cubas</div>
+                    <div class="service-title">Cubas Industriales</div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -557,58 +580,10 @@
                 </div>
             </div>
             
-            <!-- Formulario de Contacto -->
-            <div class="contact-form-section fade-in delay-4">
-                <h2>Contáctanos <span class="highlight">Directamente</span></h2>
-                <p style="margin-bottom: 20px">Envíanos un mensaje y te responderemos lo antes posible</p>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="contactName">Tu nombre *</label>
-                            <input type="text" id="contactName" class="form-control" placeholder="Introduce tu nombre completo" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Tu email *</label>
-                            <input type="email" id="contactEmail" class="form-control" placeholder="tu@email.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactPhone">Teléfono (opcional)</label>
-                            <input type="tel" id="contactPhone" class="form-control" placeholder="+34 123 456 789">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactService">Servicio de interés</label>
-                            <select id="contactService" class="form-control">
-                                <option value="">Selecciona un servicio</option>
-                                <option value="depositos">Depósitos de agua</option>
-                                <option value="piscinas">Piscinas</option>
-                                <option value="cubas">Cubas y tanques</option>
-                                <option value="fosas">Fosas sépticas</option>
-                                <option value="presupuesto">Solicitud de presupuesto</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactMessage">Mensaje *</label>
-                            <textarea id="contactMessage" class="form-control" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" id="submitBtn">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
-                        </button>
-                    </form>
-                    <div id="formMessage"></div>
-                </div>
-            </div>
-            
             <!-- Contacto Rápido -->
             <div class="quick-contact fade-in delay-5">
-                <h2>Contacto <span class="highlight">Rápido</span></h2>
-                <p>¿Prefieres contactarnos directamente?</p>
+                <h2>Contacto <span class="highlight">Directo</span></h2>
+                <p>Estamos aquí para ayudarte. Contáctanos ahora mismo:</p>
                 
                 <div class="contact-methods">
                     <div class="contact-method">
@@ -619,9 +594,13 @@
                         <i class="fas fa-envelope"></i>
                         <span>Email: depofibra21@gmail.com</span>
                     </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hellín, Albacete</span>
+                    </div>
                 </div>
                 
-                <a href="https://wa.me/34642129233?text=Hola,%20me%20interesan%20sus%20productos%20de%20depósitos%20y%20piscinas" class="whatsapp-btn" target="_blank">
+                <a href="https://wa.me/34642129233?text=Hola,%20me%20interesan%20sus%20productos%20de%20depósitos%20y%20piscinas" class="whatsapp-btn" target="_blank" aria-label="Contactar por WhatsApp">
                     <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
                 </a>
             </div>
@@ -629,87 +608,33 @@
         
         <footer>
             <div class="copyright">
-                &copy; 2025 Depofibra. Todos los derechos reservados.
+                &copy; 2025 Depofibra. Todos los derechos reservados. | Fabricantes de poliéster reforzado con fibra de vidrio
             </div>
             <div class="social-links">
-                <a href="https://www.instagram.com/depofibra" class="social-link" target="_blank">
+                <a href="https://www.instagram.com/depofibra" class="social-link" target="_blank" aria-label="Síguenos en Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61577941393241" class="social-link" target="_blank">
+                <a href="https://www.facebook.com/profile.php?id=61577941393241" class="social-link" target="_blank" aria-label="Síguenos en Facebook">
                     <i class="fab fa-facebook"></i>
                 </a>
             </div>
         </footer>
     </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    // Inicializar EmailJS - REEMPLAZA CON TUS DATOS REALES
-    emailjs.init("HkN6f4YpQZkD9YU_o"); // ← Tu Public Key de EmailJS
-
-    function initContactForm() {
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
-        
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+    <script>
+        // Efectos de animación al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+            });
             
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const phone = document.getElementById('contactPhone').value;
-            const service = document.getElementById('contactService').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            if (!name || !email || !message) {
-                showMessage('Por favor, completa todos los campos obligatorios (*)', 'error');
-                return;
-            }
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            
-            try {
-                const templateParams = {
-                    from_name: name,
-                    from_email: email,
-                    phone: phone || 'No proporcionado',
-                    service: service || 'No especificado',
-                    message: message,
-                    to_email: 'depofibra21@gmail.com',
-                    date: new Date().toLocaleString('es-ES')
-                };
-
-                // REEMPLAZA CON TUS SERVICE_ID Y TEMPLATE_ID
-                const response = await emailjs.send(
-                    'service_henlapa',     // ← Tu Service ID
-                    'template_9mw0v4n',    // ← Tu Template ID  
-                    templateParams
-                );
-                
-                if (response.status === 200) {
-                    showMessage('¡Gracias por tu mensaje! Te responderemos lo antes posible.', 'success');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Error al enviar el mensaje');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Error al enviar el mensaje. Por favor, intenta contactarnos por WhatsApp.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
-            }
-        });
-        
-        function showMessage(text, type) {
-            formMessage.innerHTML = `<div class="message ${type}">${text}</div>`;
             setTimeout(() => {
-                formMessage.innerHTML = '';
-            }, 5000);
-        }
-    }
-</script>
+                elements.forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
