@@ -643,75 +643,73 @@
     </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-// Sistema de formulario de contacto - VERSIÓN CORREGIDA
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const formMessage = document.getElementById('formMessage');
-    
-    // Manejar envío del formulario
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    // Inicializar EmailJS - REEMPLAZA CON TUS DATOS REALES
+    emailjs.init("HkN6f4YpQZkD9YU_o"); // ← Tu Public Key de EmailJS
+
+    function initContactForm() {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
         
-        const name = document.getElementById('contactName').value;
-        const email = document.getElementById('contactEmail').value;
-        const phone = document.getElementById('contactPhone').value;
-        const service = document.getElementById('contactService').value;
-        const message = document.getElementById('contactMessage').value;
-        
-        if (!name || !email || !message) {
-            showMessage('Por favor, completa todos los campos obligatorios (*)', 'error');
-            return;
-        }
-        
-        // Deshabilitar botón
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        
-        try {
-            // Usar Formspree con tu email específico
-            const response = await fetch('https://formspree.io/f/mjvneraa', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    service: service,
-                    message: message,
-                    _subject: `Nuevo mensaje de ${name} - Depofibra`,
-                    _replyto: email, // Para que las respuestas vayan al cliente
-                    _cc: 'depofibra21@gmail.com' // Copia a tu email
-                })
-            });
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            if (response.ok) {
-                showMessage('¡Gracias por tu mensaje! Te responderemos lo antes posible.', 'success');
-                contactForm.reset();
-            } else {
-                throw new Error('Error al enviar el mensaje');
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const service = document.getElementById('contactService').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (!name || !email || !message) {
+                showMessage('Por favor, completa todos los campos obligatorios (*)', 'error');
+                return;
             }
-        } catch (error) {
-            console.error('Error:', error);
-            showMessage('Error al enviar el mensaje. Por favor, intenta contactarnos por WhatsApp o email directamente.', 'error');
-        } finally {
-            // Rehabilitar botón
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
-        }
-    });
-    
-    // Mostrar mensajes
-    function showMessage(text, type) {
-        formMessage.innerHTML = `<div class="message ${type}">${text}</div>`;
-        setTimeout(() => {
-            formMessage.innerHTML = '';
-        }, 5000);
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            try {
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    phone: phone || 'No proporcionado',
+                    service: service || 'No especificado',
+                    message: message,
+                    to_email: 'depofibra21@gmail.com',
+                    date: new Date().toLocaleString('es-ES')
+                };
+
+                // REEMPLAZA CON TUS SERVICE_ID Y TEMPLATE_ID
+                const response = await emailjs.send(
+                    'service_henlapa',     // ← Tu Service ID
+                    'template_9mw0v4n',    // ← Tu Template ID  
+                    templateParams
+                );
+                
+                if (response.status === 200) {
+                    showMessage('¡Gracias por tu mensaje! Te responderemos lo antes posible.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Error al enviar el mensaje');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Error al enviar el mensaje. Por favor, intenta contactarnos por WhatsApp.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+            }
+        });
+        
+        function showMessage(text, type) {
+            formMessage.innerHTML = `<div class="message ${type}">${text}</div>`;
+            setTimeout(() => {
+                formMessage.innerHTML = '';
+            }, 5000);
         }
     }
-    </script>
+</script>
 </body>
 </html>
