@@ -8,6 +8,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Tus estilos CSS existentes se mantienen igual */
         :root {
             --primary: #01488e;
             --primary-light: #3a6da8;
@@ -82,15 +83,15 @@
         }
 
         .logo-img {
-            width: 150px; /* Reducido de 200px */
+            width: 150px;
             max-width: 100%;
             height: auto;
         }
         
         .logo-placeholder {
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px; /* Reducido de 12px */
-            padding: 0.8rem; /* Reducido de 1rem */
+            border-radius: 8px;
+            padding: 0.8rem;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 1rem;
@@ -98,7 +99,7 @@
         
         .logo-text {
             color: white;
-            font-size: 1rem; /* Reducido de 1.1rem */
+            font-size: 1rem;
             font-weight: 500;
             line-height: 1.4;
             max-width: 500px;
@@ -210,7 +211,7 @@
             line-height: 1.6;
         }
         
-        /* SECCIÓN DE RESEÑAS MEJORADA - MÁS SIMPLE */
+        /* SECCIÓN DE RESEÑAS MEJORADA */
         .reviews-section {
             margin: 3rem 0;
             width: 100%;
@@ -303,12 +304,17 @@
             transform: translateY(-2px);
         }
         
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .review-item {
             background-color: rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             padding: 1.2rem;
             margin-bottom: 1rem;
-            position: relative;
         }
         
         .review-header {
@@ -347,26 +353,27 @@
             opacity: 0.7;
         }
         
-        .delete-review {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: white;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.7;
         }
         
-        .delete-review:hover {
-            background: rgba(255, 0, 0, 0.3);
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .message.success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #27ae60;
+        }
+        
+        .message.error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid #c0392b;
         }
         
         /* CONTACTO MEJORADO */
@@ -476,8 +483,8 @@
             }
             
             .logo-text {
-                margin-left: 1.5rem; /* Reducido de 2rem */
-                font-size: 1.1rem; /* Reducido de 1.2rem */
+                margin-left: 1.5rem;
+                font-size: 1.1rem;
             }
             
             h1 {
@@ -625,7 +632,7 @@
                 </div>
             </div>
             
-            <!-- Sección de Reseñas - Simplificada -->
+            <!-- Sección de Reseñas - Con sistema real -->
             <div class="reviews-section fade-in delay-4">
                 <h2>Reseñas de <span class="highlight">Clientes</span></h2>
                 <p>Comparte tu experiencia con nuestros productos y servicios</p>
@@ -635,12 +642,17 @@
                         <h3>Deja tu reseña</h3>
                         <form id="reviewForm">
                             <div class="form-group">
-                                <label for="reviewName">Tu nombre</label>
+                                <label for="reviewName">Tu nombre *</label>
                                 <input type="text" id="reviewName" class="form-control" placeholder="Introduce tu nombre" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Valoración</label>
+                                <label for="reviewEmail">Tu email (opcional)</label>
+                                <input type="email" id="reviewEmail" class="form-control" placeholder="tu@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Valoración *</label>
                                 <div class="rating-stars" id="ratingStars">
                                     <span class="star" data-rating="1">★</span>
                                     <span class="star" data-rating="2">★</span>
@@ -652,19 +664,19 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="comment">Comentario</label>
+                                <label for="comment">Comentario *</label>
                                 <textarea id="comment" class="form-control" placeholder="Cuéntanos tu experiencia..." required></textarea>
                             </div>
                             
-                            <button type="submit" class="btn">Publicar Reseña</button>
+                            <button type="submit" class="btn" id="submitBtn">Publicar Reseña</button>
                         </form>
+                        <div id="formMessage"></div>
                     </div>
                     
                     <div class="review-list">
                         <h3>Reseñas Recientes</h3>
                         <div id="reviewsList">
-                            <!-- Las reseñas se cargarán aquí dinámicamente -->
-                            <div class="no-reviews">Aún no hay reseñas. ¡Sé el primero en opinar!</div>
+                            <div class="loading">Cargando reseñas...</div>
                         </div>
                     </div>
                 </div>
@@ -712,12 +724,14 @@
             initReviewSystem();
         });
 
-        // Sistema de reseñas simplificado
+        // Sistema de reseñas con base de datos real
         function initReviewSystem() {
             const stars = document.querySelectorAll('.star');
             const ratingInput = document.getElementById('rating');
             const reviewForm = document.getElementById('reviewForm');
             const reviewsList = document.getElementById('reviewsList');
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
             
             // Cargar reseñas existentes
             loadReviews();
@@ -740,90 +754,102 @@
             });
             
             // Manejar envío del formulario
-            reviewForm.addEventListener('submit', function(e) {
+            reviewForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const name = document.getElementById('reviewName').value;
+                const email = document.getElementById('reviewEmail').value;
                 const rating = ratingInput.value;
                 const comment = document.getElementById('comment').value;
                 
                 if (!name || !rating || !comment) {
-                    alert('Por favor, completa todos los campos');
+                    showMessage('Por favor, completa todos los campos obligatorios', 'error');
                     return;
                 }
                 
-                // Crear nueva reseña
-                const newReview = {
-                    id: Date.now(),
-                    userName: name,
-                    rating: parseInt(rating),
-                    comment: comment,
-                    date: new Date().toLocaleDateString('es-ES')
-                };
+                // Deshabilitar botón
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Publicando...';
                 
-                // Guardar reseña
-                saveReview(newReview);
-                
-                // Actualizar lista
-                displayReviews();
-                
-                // Limpiar formulario
-                reviewForm.reset();
-                stars.forEach(star => star.classList.remove('active'));
-                ratingInput.value = '';
-                
-                alert('¡Gracias por tu reseña!');
+                try {
+                    const response = await fetch('api/reviews.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            rating: rating,
+                            comment: comment
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showMessage('¡Gracias por tu reseña! Se ha publicado correctamente.', 'success');
+                        reviewForm.reset();
+                        stars.forEach(star => star.classList.remove('active'));
+                        ratingInput.value = '';
+                        // Recargar las reseñas
+                        loadReviews();
+                    } else {
+                        showMessage('Error: ' + result.message, 'error');
+                    }
+                } catch (error) {
+                    showMessage('Error de conexión. Inténtalo de nuevo.', 'error');
+                } finally {
+                    // Rehabilitar botón
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Publicar Reseña';
+                }
             });
             
-            // Cargar reseñas desde localStorage
-            function loadReviews() {
-                displayReviews();
-            }
-            
-            // Guardar reseña en localStorage
-            function saveReview(review) {
-                let reviews = JSON.parse(localStorage.getItem('depofibraReviews')) || [];
-                reviews.unshift(review);
-                localStorage.setItem('depofibraReviews', JSON.stringify(reviews));
+            // Cargar reseñas desde el servidor
+            async function loadReviews() {
+                try {
+                    const response = await fetch('api/reviews.php');
+                    const reviews = await response.json();
+                    
+                    displayReviews(reviews);
+                } catch (error) {
+                    reviewsList.innerHTML = '<div class="error">Error al cargar las reseñas</div>';
+                }
             }
             
             // Mostrar reseñas en la lista
-            function displayReviews() {
-                const reviews = JSON.parse(localStorage.getItem('depofibraReviews')) || [];
-                reviewsList.innerHTML = '';
-                
+            function displayReviews(reviews) {
                 if (reviews.length === 0) {
                     reviewsList.innerHTML = '<div class="no-reviews">Aún no hay reseñas. ¡Sé el primero en opinar!</div>';
                     return;
                 }
                 
+                let html = '';
                 reviews.forEach(review => {
-                    const reviewElement = document.createElement('div');
-                    reviewElement.className = 'review-item';
-                    reviewElement.innerHTML = `
-                        <button class="delete-review" onclick="deleteReview(${review.id})">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <div class="review-header">
-                            <div class="review-author">${review.userName}</div>
-                            <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
+                    const date = new Date(review.created_at).toLocaleDateString('es-ES');
+                    html += `
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-author">${review.user_name}</div>
+                                <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
+                            </div>
+                            <div class="review-date">${date}</div>
+                            <div class="review-text">${review.comment}</div>
                         </div>
-                        <div class="review-date">${review.date}</div>
-                        <div class="review-text">${review.comment}</div>
                     `;
-                    reviewsList.appendChild(reviewElement);
                 });
+                
+                reviewsList.innerHTML = html;
             }
             
-            // Función global para eliminar reseñas
-            window.deleteReview = function(reviewId) {
-                if (confirm('¿Estás seguro de que quieres eliminar esta reseña?')) {
-                    let reviews = JSON.parse(localStorage.getItem('depofibraReviews')) || [];
-                    reviews = reviews.filter(review => review.id !== reviewId);
-                    localStorage.setItem('depofibraReviews', JSON.stringify(reviews));
-                    displayReviews();
-                }
-            };
+            // Mostrar mensajes
+            function showMessage(text, type) {
+                formMessage.innerHTML = `<div class="message ${type}">${text}</div>`;
+                setTimeout(() => {
+                    formMessage.innerHTML = '';
+                }, 5000);
+            }
         }
     </script>
 </body>
