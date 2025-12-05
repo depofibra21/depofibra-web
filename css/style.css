@@ -1,0 +1,538 @@
+/* --- Depofibra: Estilo Completo (Menú Blanco + Cursor Personalizado) --- */
+
+:root {
+    --primary-color: #01488e; /* Azul Corporativo */
+    --text-dark: #111111;
+    --text-muted: #757575;
+    --bg-light: #f9f9f9;
+}
+
+.color-primario {
+    color: #01488e;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px; 
+    cursor: none; /* OCULTAR CURSOR NATIVO */
+}
+
+/* --- CURSOR PERSONALIZADO --- */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-color);
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Efecto cuando pasa por encima de un enlace */
+body.hovering .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(1, 72, 142, 0.1);
+    border-color: transparent;
+}
+
+/* En móviles mostramos el cursor normal */
+@media (hover: none) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-outline { display: none; }
+}
+
+
+/* Utilidades */
+.tracking-1 { letter-spacing: 1px; }
+.tracking-2 { letter-spacing: 2px; }
+.tracking-wide { letter-spacing: 1.5px; }
+.tracking-widest { letter-spacing: 3px; }
+.py-6 { padding-top: 6rem; padding-bottom: 6rem; }
+
+
+/* --- NAVEGACIÓN (Optimizada: Máximo Logo, Mínima Barra) --- */
+.navbar {
+    height: 90px; /* Altura fija: Fina y elegante */
+    padding: 0 !important; /* IMPORTANTE: Quitamos relleno para aprovechar el espacio */
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center; /* Centra todo verticalmente */
+}
+
+/* Contenedor del Logo */
+.navbar-brand {
+    height: 100%;
+    display: flex;
+    align-items: center; /* Centra el logo perfectamente */
+    padding: 0;
+    margin-right: 2rem;
+}
+
+/* IMAGEN DEL LOGO */
+.navbar-brand img {
+    height: 80px !important; /* TAMAÑO GRANDE (Ocupa casi toda la barra) */
+    width: auto;
+    object-fit: contain; /* Asegura que se vea entero */
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
+}
+
+/* Enlaces del menú */
+.nav-link, .nav-icons a {
+    color: #111111 !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-toggler-icon { filter: none !important; }
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* --- LOGO TIPOGRÁFICO PERSONALIZADO (H1) --- */
+.logo-text {
+    font-family: 'Jost', sans-serif; /* Tu tipografía moderna */
+    font-size: 2.2rem;   /* Tamaño grande y legible */
+    font-weight: 800;    /* Extra Bold (muy grueso) */
+    color: var(--primary-color); /* Azul DEPO */
+    text-transform: uppercase;   /* Mayúsculas */
+    letter-spacing: -1px;        /* Unir un poco las letras (estilo moderno) */
+    line-height: 1;              /* Evita que empuje la barra hacia abajo */
+    display: flex;
+    align-items: center;
+}
+
+/* El punto final azul para darle toque de diseño */
+.logo-text .dot {
+    color: var(--primary-color);
+    font-size: 3rem; /* El punto un poco más grande */
+    line-height: 0;
+    margin-left: 2px;
+    position: relative;
+    top: -2px;
+}
+
+/* Ajuste para móviles (un poco más pequeño para que quepa) */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- HERO SECTION --- */
+.hero-slider, .carousel-item { 
+    height: calc(100vh - 80px);
+    min-height: 500px; 
+}
+
+/* --- MEJORA DE IMÁGENES DE FONDO (Efecto Dark Premium) --- */
+
+/* 1. Oscurecemos la imagen base MUCHO MÁS (al 50%) */
+/* Aplicamos esto tanto al Slider (.bg-img) como al Banner de abajo (.bg-img-fixed) */
+.bg-img, .cta-parallax .bg-img-fixed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    
+    /* TRUCO: Bajamos el brillo a la mitad y subimos un poco el contraste */
+    filter: brightness(0.5) contrast(1.1); 
+    
+    /* Transición suave para el efecto zoom del slider */
+    transform: scale(1);
+    transition: transform 8s ease;
+}
+
+/* Efecto zoom solo para el slider activo */
+.carousel-item.active .bg-img { transform: scale(1.05); }
+.cta-parallax .bg-img-fixed { background-attachment: fixed; } /* Mantiene el efecto parallax abajo */
+
+
+/* 2. Capa Superpuesta (Overlay) MÁS SOLIDA */
+/* Esto pone un velo negro fuerte sobre la foto */
+.hero-overlay-dark {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Negro al 60% de opacidad (Muy visible) */
+    background-color: rgba(0, 0, 0, 0.466); 
+    z-index: 1;
+}
+
+/* Ajuste específico para el Banner "Proyectos a Medida" si lo quieres azulado oscuro */
+/* Si prefieres negro también aquí, borra este bloque */
+.cta-parallax .hero-overlay-dark {
+    background-color: rgba(1, 40, 80, 0.85) !important; /* Azul muy oscuro y denso */
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.btn-link-underline {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #fff;
+    color: #fff !important;
+    transition: all 0.3s;
+}
+
+.btn-link-underline:hover {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color);
+}
+
+/* --- RESTO DE ESTILOS --- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0;
+    color: white !important;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color);
+}
+.btn-white {
+    background-color: #fff;
+    color: #111;
+    border: none;
+    transition: all 0.3s;
+}
+.btn-white:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- MARQUEE INFINITO (Sin huecos) --- */
+.marquee-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: #fff; /* Asegura fondo blanco */
+}
+
+.marquee-text {
+    display: inline-block;
+    width: max-content; /* El ancho se adapta al contenido (muy largo) */
+    padding-left: 0%; /* Empieza fuera de la pantalla */
+    animation: marquee 40s linear infinite; /* Un poco más lento para leerse mejor */
+}
+
+/* Animación: Mueve el texto de derecha a izquierda infinitamente */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Movemos solo hasta la mitad o un tercio, donde el texto ya se repite */
+        transform: translateX(-50%);
+    }
+}
+
+/* Al poner el ratón encima, la animación se pausa (opcional, muy útil) */
+.marquee-wrap:hover .marquee-text {
+    animation-play-state: paused;
+}
+
+/* Productos / Grid */
+.product-item { cursor: pointer; }
+.img-wrap { overflow: hidden; position: relative; }
+.transition-zoom { transition: transform 0.6s ease; }
+.product-item:hover .transition-zoom { transform: scale(1.08); }
+
+.product-overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+    opacity: 5 !important; 
+    transition: 0.4s;
+}
+.product-item:hover .product-overlay { 
+    opacity: 12; 
+}
+
+
+.btn-quick-view {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -40%);
+    width: 45px; height: 45px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: all 0.3s;
+}
+.btn-quick-view:hover { background: var(--primary-color); color: #fff; }
+.product-item:hover .btn-quick-view { opacity: 1; transform: translate(-50%, -50%); }
+
+/* Footer */
+.border-white-10 { border-color: rgba(255,255,255,0.1) !important; }
+.border-white-50 { border-color: rgba(255,255,255,0.5) !important; }
+.hover-white:hover { color: #fff !important; padding-left: 5px; transition: 0.3s; }
+.form-control::placeholder { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+
+/* --- SECCIÓN BEST SELLERS (Estilo Catálogo) --- */
+
+/* Sidebar de Categorías */
+.category-list li {
+    margin-bottom: 12px;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+}
+
+.category-list a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; /* Pequeño desplazamiento elegante */
+}
+
+.category-list span {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* Banner en Sidebar */
+.sidebar-banner {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 55% 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- TARJETAS UNIFORMES (Todas iguales) --- */
+.product-card-simple {
+    border: 1px solid #eee;
+    background: #fff;
+    transition: all 0.3s ease;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-simple:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-card-simple .card-img {
+    height: 220px; /* <--- ESTO ES LO QUE HACE QUE SEAN IGUALES */
+    width: 100%;
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card-simple .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.6s ease;
+}
+
+.product-card-simple:hover .card-img img { transform: scale(1.08); }
+
+.product-card-simple .card-body {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- BANNER CTA PARALLAX --- */
+/* --- BANNER CTA PARALLAX (Compacto) --- */
+.cta-parallax {
+    position: relative;
+    overflow: hidden;
+    /* Reducido de 500px a 300px para que sea una franja elegante */
+    min-height: 300px; 
+}
+
+/* Fondo fijo para efecto de profundidad */
+.cta-parallax .bg-img-fixed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Botón transparente */
+.btn-outline-white-thick {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    transition: all 0.3s;
+    font-size: 0.85rem; /* Letra del botón más pequeña */
+    padding: 10px 25px; /* Botón más compacto */
+}
+
+.btn-outline-white-thick:hover {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+/* Fondo fijo para efecto de profundidad */
+.cta-parallax .bg-img-fixed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* LA CLAVE DEL EFECTO */
+}
+
+/* Botón transparente grueso para destacar */
+.btn-outline-white-thick {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.btn-outline-white-thick:hover {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+/* --- SECCIÓN FILOSOFÍA / NOSOTROS (Estructurada) --- */
+
+/* Línea vertical decorativa al lado del texto */
+.border-start-primary {
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Lista de características con check azul */
+.list-checked li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.list-checked li::before {
+    content: '\f00c'; /* Icono check de FontAwesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-color);
+}
+
+/* Caja de estadísticas */
+.stats-box {
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    padding: 25px;
+    transition: all 0.3s;
+}
+
+.stats-box:hover {
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+/* --- BOTÓN CTA LLAMATIVO (Sólido) --- */
+.btn-cta-solid {
+    background-color: var(--primary-color); /* Fondo Azul */
+    color: #ffffff !important; /* Texto Blanco */
+    border: 2px solid var(--primary-color);
+    padding: 10px 30px; /* Un poco más grande */
+    font-weight: 700;   /* Letra gruesa */
+    text-transform: uppercase; /* Mayúsculas para urgencia */
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(1, 72, 142, 0.25); /* Sombra difuminada para resaltar */
+    transition: all 0.3s ease;
+}
+
+.btn-cta-solid:hover {
+    background-color: #01366b; /* Azul más oscuro al pasar ratón */
+    border-color: #01366b;
+    transform: translateY(-2px); /* Se eleva un poco */
+    box-shadow: 0 8px 20px rgba(1, 72, 142, 0.35);
+}
+
+/* --- FOOTER (Estilo Infinity / Profesional) --- */
+footer {
+    background-color: #1a1a1a !important; /* Gris muy oscuro / Negro */
+    color: #b0b0b0; /* Texto gris claro para leer bien */
+    font-size: 0.9rem;
+}
+
+footer h6 {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #b0b0b0 !important;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important; /* Azul al pasar el ratón */
+    padding-left: 5px;
+}
+
+footer ul li {
+    margin-bottom: 10px; /* Espacio entre líneas para que no se amontone */
+}
+
+footer .border-top-dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste del logo en el footer para que se vea blanco */
+footer .logo-text {
+    color: white !important;
+}
+footer .logo-text span.text-dark {
+    color: white !important; /* Cambia la parte negra del logo a blanco */
+}

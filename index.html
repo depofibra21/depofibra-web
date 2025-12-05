@@ -1,680 +1,558 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- METADATOS SEO OPTIMIZADOS -->
-    <title>Depofibra | Fabricantes de Depósitos y Piscinas de Poliéster</title>
-    <meta name="description" content="Depofibra - Fabricantes especializados en depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio. Calidad y durabilidad garantizada.">
-    <meta name="keywords" content="depósitos poliéster, piscinas fibra vidrio, cubas, fosas sépticas, depósitos agua, poliéster reforzado">
-    <meta name="author" content="Depofibra">
-    
-    <!-- OPEN GRAPH -->
-    <meta property="og:title" content="Depofibra | Fabricantes de Depósitos y Piscinas de Poliéster">
-    <meta property="og:description" content="Especialistas en depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://depofibra.es">
-    
-    <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="./images/iconos/LogoBlanco-removebg-preview.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/iconos/LogoBlanco-removebg-preview.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/iconos/LogoBlanco-removebg-preview.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/iconos/LogoBlanco-removebg-preview.ico">
-    
-    <!-- SCHEMA MARKUP PARA SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Depofibra",
-      "description": "Fabricantes de depósitos, piscinas, cubas y fosas sépticas de poliéster reforzado con fibra de vidrio",
-      "url": "https://depofibra.es",
-      "telephone": "+34-642-129-233",
-      "email": "depofibra21@gmail.com",
-      "openingHours": "Mo-Fr 08:00-18:00",
-      "areaServed": "España"
-    }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #01488e;
-            --primary-light: #3a6da8;
-            --primary-dark: #013366;
-            --secondary: #f8b500;
-            --light: #f5f7fa;
-            --dark: #333333;
-            --gray: #6c757d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-        
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(1, 72, 142, 0.85) 0%, rgba(1, 51, 102, 0.9) 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* HEADER */
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
+    <title>Depofibra | Soluciones Profesionales</title>
+    <meta name="description"
+        content="Diseño y fabricación de depósitos y piscinas de poliéster. Estética y durabilidad.">
 
-        .logo-img {
-            width: 150px;
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .logo-placeholder {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 0.8rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
-        }
-        
-        .logo-text {
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.4;
-            max-width: 500px;
-        }
-        
-        /* CONTENIDO PRINCIPAL */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem 0;
-            color: white;
-            flex: 1;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
-        }
-        
-        .highlight {
-            color: var(--secondary);
-            display: block;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            opacity: 0.9;
-        }
-        
-        /* BANNER PROMOCIONAL */
-        .promo-banner {
-            background: linear-gradient(135deg, var(--secondary) 0%, #e6a700 100%);
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            width: 100%;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .promo-banner h2 {
-            color: var(--dark);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .promo-banner p {
-            color: var(--dark);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-        
-        .promo-features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .promo-feature {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.8rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--dark);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .promo-feature i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-        
-        /* SERVICIOS */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-            width: 100%;
-            max-width: 800px;
-        }
-        
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 140px;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .service-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-        }
-        
-        .service-title {
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: center;
-        }
-        
-        /* SECCIÓN DE CONSTRUCCIÓN */
-        .construction-section {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            width: 100%;
-            max-width: 700px;
-            text-align: center;
-        }
-        
-        .construction-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .construction-section p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        /* CONTACTO RÁPIDO - MEJORADO */
-        .quick-contact {
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            width: 100%;
-            max-width: 600px;
-        }
-        
-        .contact-methods {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .contact-method:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(8px);
-            border-color: var(--secondary);
-        }
-        
-        .contact-method i {
-            font-size: 1.4rem;
-            color: var(--secondary);
-            width: 40px;
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-        
-        .contact-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.2rem;
-        }
-        
-        .contact-value {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #25D366;
-            color: white;
-            padding: 1.2rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            margin-top: 1.5rem;
-            width: 100%;
-            max-width: 300px;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-btn i {
-            margin-right: 0.8rem;
-            font-size: 1.3rem;
-        }
-        
-        /* FOOTER */
-        footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            gap: 1rem;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .social-link {
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            color: var(--secondary);
-            transform: scale(1.2);
-        }
-        
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* ANIMACIONES */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        .delay-5 { animation-delay: 1s; }
-        
-        /* RESPONSIVE */
-        @media (min-width: 768px) {
-            .container {
-                padding: 2rem;
-            }
-            
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-            }
-            
-            .logo {
-                flex-direction: row;
-                margin-bottom: 0;
-            }
-            
-            .logo-text {
-                margin-left: 1.5rem;
-                font-size: 1.1rem;
-            }
-            
-            h1 {
-                font-size: 3.5rem;
-            }
-            
-            .highlight {
-                display: inline;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .services {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .contact-methods {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-method {
-                padding: 1.5rem;
-            }
-            
-            footer {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-            }
-            
-            .promo-banner h2 {
-                font-size: 2.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .services {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .service-card {
-                padding: 1rem 0.5rem;
-                min-height: 120px;
-            }
-            
-            .service-icon {
-                font-size: 1.8rem;
-            }
-            
-            .service-title {
-                font-size: 0.9rem;
-            }
-            
-            .promo-banner {
-                padding: 1.5rem;
-            }
-            
-            .promo-banner h2 {
-                font-size: 1.5rem;
-            }
-            
-            .promo-features {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .quick-contact {
-                padding: 1.5rem;
-            }
-            
-            .contact-method {
-                padding: 1rem;
-            }
-            
-            .contact-method i {
-                font-size: 1.2rem;
-                width: 30px;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="background">
-        <div class="overlay"></div>
-    </div>
-    
-    <div class="container">
-        <header>
-            <div class="logo">
-                <div class="logo-placeholder">
-                    <img src="images/EsloganConFondoOscuro-Photoroom.png" alt="Logo Depofibra - Fabricantes de depósitos y piscinas de poliéster" class="logo-img">
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header class="fixed-top header-wrapper" data-bs-interval="000">
+
+        <div class="top-bar py-2" style="background-color: #01488e; color: white;">
+            <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
+                <div class="d-none d-md-block tracking-1">
+                    <i class="fas fa-envelope me-2"></i> depofibra21@gmail.com
+                    <span class="mx-3 opacity-50">|</span>
+                    <i class="fas fa-truck me-2"></i> Envíos a toda España y Portugal
                 </div>
-                <div class="logo-text">Depósitos · Piscinas · Cubas · Fosas Sépticas</div>
+                <div class="ms-auto tracking-1">
+                    <a href="https://wa.me/34642129233" style="color: white; text-decoration-line: none;">
+                        <i class="fab fa-whatsapp me-2"></i> ¿Hablamos? +34 642 12 92 33
+                    </a>
+                </div>
             </div>
-        </header>
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-white" id="mainNav">
+            <div class="container-fluid px-lg-5">
+
+                <a class="navbar-brand p-0" href="#">
+                    <h1 class="logo-text m-0">
+                        DEPO<span class="text-dark">FIBRA</span><span class="dot">.</span>
+                    </h1>
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="fas fa-bars fs-4 text-dark"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#coleccion">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#filosofia">Sobre nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+
+                        <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                            <a href="mailto: depofibra21@gmail.com" class="btn btn-cta-solid rounded-0">
+                                Pedir Presupuesto
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <header id="hero-slider" class="hero-slider carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <div class="bg-img" style="background-image: url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2560&auto=format&fit=crop');"></div>
+                
+                <div class="hero-overlay-dark"></div>
+
+                <div class="container h-100 d-flex align-items-center justify-content-center text-center position-relative z-2">
+                    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+                        <span class="d-block text-uppercase tracking-widest text-primary mb-3 small fw-bold">Estilo & Confort</span>
+                        <h1 class="display-2 fw-light mb-4 text-white">Tu Oasis <span class="fw-medium">Privado</span></h1>
+                        <p class="lead mb-5 text-white-50 fw-light mx-auto" style="max-width: 600px;">
+                            Transforma tu hogar con nuestras piscinas de diseño moderno. Líneas puras, tacto suave y la elegancia que tu jardín merece.
+                        </p>
+                        <a href="#coleccion" class="btn-link-underline text-white text-uppercase tracking-2 small fw-bold">Ver Modelos</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-item h-100">
+                <div class="bg-img" style="background-image: url('images/aéreaolivos.avif');"></div>
+                <div class="hero-overlay-dark"></div>
+                <div class="container h-100 d-flex align-items-center justify-content-center text-center position-relative z-2">
+                    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+                        <span class="d-block text-uppercase tracking-widest text-primary mb-3 small fw-bold">Directo de Fábrica</span>
+                        <h1 class="display-2 fw-light mb-4 text-white">Calidad sin <span class="fw-medium">Límites</span></h1>
+                        <p class="lead mb-5 text-white-50 fw-light mx-auto" style="max-width: 600px;">
+                            Fabricamos en España con poliéster reforzado de máxima durabilidad. Sin intermediarios, garantizando el mejor precio y asistencia técnica directa.
+                        </p>
+                        <a href="#coleccion" class="btn-link-underline text-white text-uppercase tracking-2 small fw-bold">Descubrir Catálogo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <main class="main-content">
-            <h1 class="fade-in">Nueva Web en <span class="highlight">Construcción</span></h1>
-            <p class="subtitle fade-in delay-1">Estamos trabajando en nuestra nueva página web para ofrecerte una mejor experiencia. Mientras tanto, puedes contactarnos directamente.</p>
-            
-            <!-- Banner Promocional -->
-            <div class="promo-banner fade-in delay-2">
-                <h2>Calidad y Durabilidad Garantizada</h2>
-                <p>Máxima calidad y experiencia fabricando productos de poliéster reforzado con fibra de vidrio</p>
-                
-                <div class="promo-features">
-                    <div class="promo-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Resistencia Superior</span>
-                    </div>
-                    <div class="promo-feature">
-                        <i class="fas fa-cogs"></i>
-                        <span>Fabricación Personalizada</span>
-                    </div>
-                    <div class="promo-feature">
-                        <i class="fas fa-medal"></i>
-                        <span>Calidad Comprobada</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Sección de Construcción -->
-            <div class="construction-section fade-in delay-3">
-                <h2>¡Disponible muy pronto!</h2>
-                <p>Nuestro nuevo sitio web está en desarrollo para ofrecerte una experiencia mejorada con información completa sobre nuestros productos y servicios.</p>
-                <p>Mientras tanto, no dudes en contactarnos para cualquier consulta o presupuesto.</p>
-            </div>
-            
-            <div class="services fade-in delay-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <div class="service-title">Depósitos de Agua</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-swimming-pool"></i>
-                    </div>
-                    <div class="service-title">Piscinas</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="service-title">Cubas Industriales</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="service-title">Fosas Sépticas</div>
-                </div>
-            </div>
-            
-            <!-- Contacto Rápido MEJORADO -->
-            <div class="quick-contact fade-in delay-5">
-                <h2>Contacto <span class="highlight">Directo</span></h2>
-                <p>Estamos aquí para ayudarte. Contáctanos ahora mismo:</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fab fa-whatsapp"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">WhatsApp</span>
-                            <span class="contact-value">+34 642 129 233</span>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">depofibra21@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-clock"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">Horario</span>
-                            <span class="contact-value">Lunes a Viernes 8:00-21:00</span>
-                            <span class="contact-value">Sábados 9:00-16:00</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="https://wa.me/34642129233?text=Hola,%20me%20interesan%20sus%20productos%20de%20depósitos%20y%20piscinas" class="whatsapp-btn" target="_blank" aria-label="Contactar por WhatsApp">
-                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                </a>
-            </div>
-        </main>
-        
-        <footer>
-            <div class="copyright">
-                &copy; 2025 Depofibra. Todos los derechos reservados. | Fabricantes de poliéster reforzado con fibra de vidrio
-            </div>
-            <div class="social-links">
-                <a href="https://www.instagram.com/depofibra" class="social-link" target="_blank" aria-label="Síguenos en Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61577941393241" class="social-link" target="_blank" aria-label="Síguenos en Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </div>
-        </footer>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-slider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-slider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </header>
+
+    <div class="marquee-wrap border-bottom border-top py-3 bg-white">
+        <div class="marquee-text text-uppercase tracking-widest small fw-bold">
+
+            <span class="text-muted">Envío Nacional</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="color-primario">Garantía de Fábrica</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="text-muted">Calidad Premium</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="color-primario">Diseño a Medida</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="text-muted">Poliéster Reforzado</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="text-muted">Envío Nacional</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Garantía de Fábrica</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Calidad Premium</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Diseño a Medida</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Poliéster Reforzado</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="text-muted">Envío Nacional</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Garantía de Fábrica</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Calidad Premium</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Diseño a Medida</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Poliéster Reforzado</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+            <span class="text-muted">Envío Nacional</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Garantía de Fábrica</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Calidad Premium</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="color-primario">Diseño a Medida</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+            <span class="text-muted">Poliéster Reforzado</span>
+            <span class="mx-3 text-muted opacity-50">&bull;</span>
+
+        </div>
     </div>
 
-    <script>
-        // Efectos de animación al cargar
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(el => {
-                el.style.opacity = '0';
-            });
+    <section id="coleccion" class="py-6 bg-white">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex justify-content-between align-items-end mb-5 px-md-3">
+                <div>
+                    <h2 class="fw-light mb-1 display-5">Nuestra <span class="fw-medium">Colección</span></h2>
+                    <p class="text-muted mb-0 small tracking-1">Algunos de nuestros productos.</p>
+                </div>
+                <a href="#contacto"
+                    class="btn-link-underline text-muted text-uppercase small tracking-1 d-none d-md-block">Descargar
+                    Catálogo</a>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="product-item position-relative overflow-hidden h-100 group">
+                        <div class="img-wrap h-100" style="min-height: 600px;">
+                            <img src="images/piscina.jpg"
+                                alt="Piscinas" class="img-fluid w-100 h-100 object-fit-cover transition-zoom">
+                        </div>
+                        <div class="product-overlay d-flex flex-column justify-content-end p-5">
+                            <h3 class="text-white fw-light mb-1">Piscinas</h3>
+                            <p class="text-white-50 small mb-3">Modelos Romanos y Rectangulares</p>
+                            <a href="#contacto"
+                                class="btn btn-white rounded-0 px-4 w-auto align-self-start text-uppercase small tracking-2">Ver
+                                Modelos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row g-4 h-100">
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="product-item position-relative overflow-hidden h-100 group">
+                                <div class="img-wrap w-100 h-100" style="min-height: 300px;">
+                                    <img src="images/DEPÓSITO BASE PLANA 15.000L EN TALLER.jpg" alt="Depósitos"
+                                        class="img-fluid w-100 h-100 object-fit-cover transition-zoom">
+                                </div>
+                                <div class="product-overlay d-flex flex-column justify-content-end p-4">
+                                    <h4 class="text-white fw-light mb-1">Depósitos</h4>
+                                    <p class="text-white-50 small mb-3">Verticales y a medida</p>
+                                    <a href="#contacto"
+                                        class="btn btn-white rounded-0 px-3 py-2 w-auto align-self-start text-uppercase small tracking-2">Ver
+                                        Tamaños</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-item position-relative overflow-hidden h-100 group">
+                                <div class="img-wrap w-100 h-100" style="min-height: 300px;">
+                                    <img src="images/FOSA SEPTICA.png" alt="Fosas"
+                                        class="img-fluid w-100 h-100 object-fit-cover transition-zoom">
+                                </div>
+                                <div class="product-overlay d-flex flex-column justify-content-end p-4">
+                                    <h4 class="text-white fw-light mb-1">Fosas Sépticas</h4>
+                                    <p class="text-white-50 small mb-3">Homologación CE</p>
+                                    <a href="#contacto"
+                                        class="btn btn-white rounded-0 px-3 py-2 w-auto align-self-start text-uppercase small tracking-2">Más
+                                        Info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-item position-relative overflow-hidden h-100 group">
+                                <div class="img-wrap w-100 h-100" style="min-height: 280px;">
+                                    <img src="images/CUBA.png" alt="Cisternas"
+                                        class="img-fluid w-100 h-100 object-fit-cover transition-zoom">
+                                </div>
+                                <div class="product-overlay d-flex flex-column justify-content-end p-5">
+                                    <h3 class="text-white fw-light mb-1">Cisternas de Transporte</h3>
+                                    <p class="text-white-50 small mb-3">Soluciones móviles de alta capacidad</p>
+                                    <a href="#contacto"
+                                        class="btn btn-white rounded-0 px-4 w-auto align-self-start text-uppercase small tracking-2">Consultar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-6 bg-white border-top">
+        <div class="container px-lg-5">
+            <div class="row">
+
+                <div class="col-lg-3 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h4 class="text-uppercase tracking-widest fs-6 fw-bold mb-4 text-primary">Categorías</h4>
+
+                    <ul class="list-unstyled category-list mb-5">
+                        <li><a href="#">Depósitos Poliéster <span>(12)</span></a></li>
+                        <li><a href="#">Cisternas y Cubas <span>(5)</span></a></li>
+                        <li><a href="#">Fosas Sépticas <span>(3)</span></a></li>
+                        <li><a href="#">Piscinas Prefabricadas <span>(8)</span></a></li>
+                        <li><a href="#">Accesorios y Filtros <span>(15)</span></a></li>
+                    </ul>
+
+                    <div class="sidebar-banner position-relative">
+                        <div class="bg-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop'); opacity: 0.2;">
+                        </div>
+                        <div class="position-relative z-2">
+                            <h5 class="text-uppercase tracking-2 fw-light mb-3">Servicios</h5>
+                            <h3 class="fw-medium mb-4">Impermeabilización <br>& Recubrimientos</h3>
+                            <p class="small text-white-50 mb-4">Reparamos y recubrimos piscinas, azoteas y vehículos
+                                industriales.</p>
+                            <a href="#contacto"
+                                class="btn btn-outline-light rounded-0 text-uppercase tracking-1 small px-4">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
+                        <h2 class="h3 fw-light text-dark mb-0">Productos <span class="fw-medium">Más Vendidos</span>
+                        </h2>
+                        <div class="d-none d-md-flex gap-2 text-muted small">
+                            <i class="fas fa-chevron-left p-2 border cursor-pointer hover-primary"></i>
+                            <i class="fas fa-chevron-right p-2 border cursor-pointer hover-primary"></i>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="product-card-simple">
+                                <div class="card-img">
+                                    <img src="images/VERTICAL BASE PLANA DE PIE.jpg"
+                                        alt="Depósito Vertical">
+                                    <span
+                                        class="badge bg-primary position-absolute top-0 start-0 m-3 rounded-0 small tracking-1">TOP
+                                        1</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-dark">Depósito Vertical Base Plana</h5>
+                                    <p class="text-muted small mb-2">Agua Potable / Riego</p>
+                                    <div class="price-tag">Desde 450€</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-card-simple">
+                                <div class="card-img">
+                                    <img src="images/VERTICAL CON PATAS.jpg"
+                                        alt="Depósito Patas">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-dark">Depósito Vertical con Patas de Hierro o Poliéster</h5>
+                                    <p class="text-muted small mb-2">Vaciado total incluido</p>
+                                    <div class="price-tag">Consultar</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="product-card-simple">
+                                <div class="card-img">
+                                    <img src="images/cisternaAcabada.jpg"
+                                        alt="Cisterna">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-dark">Cisterna de Transporte</h5>
+                                    <p class="text-muted small mb-2">Con Rompeolas interior</p>
+                                    <div class="price-tag">A medida</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="product-card-simple">
+                                <div class="card-img">
+                                    <img src="images/fosaseptica.jpg"
+                                        alt="Fosa Séptica">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-dark">Fosa con Filtro Biológico</h5>
+                                    <p class="text-muted small mb-2">Homologación CE</p>
+                                    <div class="price-tag">Envío Gratis</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="product-card-simple">
+                                <div class="card-img">
+                                    <img src="images/piscinagrua.jpg"
+                                        alt="Piscina 6 x 3">
+                                    <span
+                                        class="badge bg-dark position-absolute top-0 start-0 m-3 rounded-0 small tracking-1">OFERTA</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-dark">Piscina 6 x 3</h5>
+                                    <p class="text-muted small mb-2">Casco + Equipación</p>
+                                    <div class="price-tag">Oferta Especial</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+                            <div
+                                class="product-card-simple bg-light d-flex align-items-center justify-content-center h-100 border-0">
+                                <a href="#contacto" class="text-center text-decoration-none p-4">
+                                    <div class="mb-3 text-primary"><i class="fas fa-arrow-right fa-2x"></i></div>
+                                    <h5 class="text-dark text-uppercase tracking-1">Ver Catálogo Completo</h5>
+                                    <p class="text-muted small">¡No disponible aún! Proximamente...</p>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-parallax py-5 d-flex align-items-center justify-content-center">
+        <div class="bg-img-fixed"
+            style="background-image: url('https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=2000&auto=format&fit=crop');">
+        </div>
+
+        <div class="hero-overlay-dark" style="background-color: rgba(1, 72, 142, 0.85) !important;"></div>
+
+        <div class="container position-relative z-2 text-center text-white">
+
+            <h2 class="display-5 fw-bold text-uppercase tracking-wide mb-3" data-aos="zoom-in"
+                style="letter-spacing: 3px;">
+                PROYECTOS <span class="fw-light" style="opacity: 0.8;">A MEDIDA</span>
+            </h2>
+
+            <p class="lead fw-light mb-4 mx-auto opacity-90 fs-6" style="max-width: 600px;" data-aos="fade-up">
+                Fabricamos depósitos y piscinas adaptados milimétricamente a tu espacio.
+            </p>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3" data-aos="fade-up"
+                data-aos-delay="100">
+                <a href="mailto:depofibra21@gmail.com"
+                    class="btn btn-white rounded-0 px-4 py-2 text-uppercase tracking-2 fw-bold text-primary small">
+                    Pedir Presupuesto
+                </a>
+                <a href="https://wa.me/34642129233"
+                    class="btn btn-outline-white-thick rounded-0 px-4 py-2 text-uppercase tracking-2 fw-bold small">
+                    <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="filosofia" class="py-6 bg-white">
+        <div class="container px-lg-5">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="position-relative">
+                        <div class="img-wrap shadow-lg" style="height: 550px;">
+                            <img src="images/fabricación.jpg"
+                                alt="Fábrica Depofibra" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ps-lg-4">
+                        <div class="border-start-primary ps-4 mb-5">
+                            <span class="text-uppercase tracking-widest small fw-bold text-primary mb-2 d-block">Sobre
+                                Depofibra</span>
+                            <h2 class="display-6 fw-light text-dark">Ingeniería en Poliéster <br><span
+                                    class="fw-medium">Fabricación Nacional</span></h2>
+                        </div>
+
+                        <p class="text-muted mb-4 lead fw-light">
+                            No somos intermediarios. Somos fabricantes obsesionados con la durabilidad. Controlamos cada
+                            capa de fibra de vidrio para garantizar productos que resistan el paso del tiempo.
+                        </p>
+
+                        <ul class="list-unstyled list-checked mb-5">
+                            <li>Proceso de curado controlado para máxima dureza.</li>
+                            <li>Resinas de poliéster de primera calidad (Normativa EU).</li>
+                            <li>Diseños monolíticos sin juntas (0 fugas).</li>
+                            <li>Adaptación a espacios difíciles y medidas especiales.</li>
+                        </ul>
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="stats-box h-100">
+                                    <i class="fas fa-medal fa-2x text-primary mb-3"></i>
+                                    <h5 class="fw-medium fs-6">Garantía Real</h5>
+                                    <p class="small text-muted mb-0">Cobertura directa de fábrica ante cualquier
+                                        defecto.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="stats-box h-100">
+                                    <i class="fas fa-truck-fast fa-2x text-primary mb-3"></i>
+                                    <h5 class="fw-medium fs-6">Logística Propia</h5>
+                                    <p class="small text-muted mb-0">Entregamos en tu finca o domicilio sin terceros.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-dark text-white pt-6 pb-4">
+        <div class="container">
+            <div class="row gy-5 border-bottom border-white-10 pb-5 mb-4" style="padding-bottom: 6rem!important;">
+                
+                <div class="col-lg-4">
+                    <a class="navbar-brand tracking-wide fw-medium text-white fs-4 d-block mb-4" href="#">
+                        DEPO<span class="fw-bold">FIBRA</span>.
+                    </a>
+                    <p class="text-white-50 fw-light small pe-lg-5">
+                        Líderes en soluciones de poliéster reforzado. Transformamos espacios y optimizamos recursos hídricos con elegancia industrial.
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-uppercase tracking-widest small fw-bold mb-4 text-white">Explorar</h6>
+                    <ul class="list-unstyled small fw-light">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Piscinas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Depósitos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Cisternas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Accesorios</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-uppercase tracking-widest small fw-bold mb-4 text-white">Ayuda</h6>
+                    <ul class="list-unstyled small fw-light">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Aviso Legal</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Envíos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Garantía</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h6 class="text-uppercase tracking-widest small fw-bold mb-4 text-white">Contacto</h6>
+                    <ul class="list-unstyled small fw-light text-white-50">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone-alt me-3"></i> 
+                            <a href="tel:+34642129233" class="text-white-50 text-decoration-none hover-white">+34 642 12 92 33</a>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-envelope me-3"></i> 
+                            <a href="mailto:depofibra21@gmail.com" class="text-white-50 text-decoration-none hover-white">depofibra21@gmail.com</a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <span>Envíos a toda España</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
             
-            setTimeout(() => {
-                elements.forEach(el => {
-                    el.style.opacity = '1';
-                });
-            }, 100);
-        });
-    </script>
+            <div class="row align-items-center small fw-light text-white-50">
+                <div class="col-md-6 text-center text-md-start">
+                    &copy; 2025 Depofibra S.L. Todos los derechos reservados.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 ms-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white-50 ms-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/34642129233" class="text-white-50 ms-3"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
