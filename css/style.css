@@ -662,14 +662,26 @@ html, body {
     overflow: hidden; /* Cortar lo que sobresalga */
 }
 
-/* Ajuste de textos grandes en portada para que no se salgan */
-@media (max-width: 576px) {
-    h1.display-2 {
-        font-size: 2.2rem !important; /* Reducir título gigante */
-        word-wrap: break-word; /* Si es muy largo, que baje de línea */
+/* --- ARREGLO BARRA AZUL SUPERIOR (MÓVIL) --- */
+@media (max-width: 991px) {
+    /* 1. Centrar el contenedor principal */
+    .top-bar .container-fluid {
+        justify-content: center !important; /* Fuerza el centrado */
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        text-align: center;
     }
-    
-    .hero-content {
-        padding: 0 15px; /* Margen para que el texto no toque los bordes */
+
+    /* 2. Anular el empuje a la derecha del texto de WhatsApp */
+    .top-bar .ms-auto {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%; /* Ocupar todo el ancho para centrarse bien */
+    }
+
+    /* 3. Ajustar tamaño de letra para que no se corte */
+    .top-bar a {
+        font-size: 12px !important; /* Tamaño legible pero compacto */
+        display: inline-block;
     }
 }
