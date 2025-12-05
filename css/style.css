@@ -536,3 +536,140 @@ footer .logo-text {
 footer .logo-text span.text-dark {
     color: white !important; /* Cambia la parte negra del logo a blanco */
 }
+
+/* --- CORRECCIÓN MÓVIL: NAVBAR --- */
+@media (max-width: 991px) {
+    /* Permitir que la barra crezca cuando se abre el menú */
+    .navbar {
+        height: auto !important; 
+        min-height: 80px;
+        padding: 10px 0 !important;
+    }
+    
+    /* Ajustar el logo para que no choque con el botón */
+    .navbar-brand img {
+        height: 50px !important; /* Más pequeño en móvil */
+    }
+    
+    .logo-text {
+        font-size: 1.5rem; /* Texto DEPOFIBRA más pequeño */
+    }
+
+    /* Dar espacio a los enlaces cuando se despliegan */
+    .navbar-collapse {
+        margin-top: 15px;
+        background-color: white; /* Fondo blanco sólido para leer bien */
+        padding-bottom: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    /* Botón de Pedir Presupuesto centrado y con margen en móvil */
+    .navbar-nav .nav-item .btn-cta-solid {
+        margin-top: 20px !important;
+        width: 100%; /* Botón ancho completo en móvil es más fácil de pulsar */
+        display: block;
+    }
+}
+
+/* --- CORRECCIÓN MÓVIL: TIPOGRAFÍA Y ESPACIOS --- */
+@media (max-width: 768px) {
+    /* Reducir espacios verticales a la mitad */
+    .py-6 { 
+        padding-top: 3rem; 
+        padding-bottom: 3rem; 
+    }
+
+    /* Títulos más manejables */
+    h1.display-2 {
+        font-size: 2.5rem; /* Dejar de ser gigantes */
+    }
+    
+    h2.display-5 {
+        font-size: 2rem;
+    }
+
+    /* El texto del Slider Hero se salía o tapaba la foto */
+    .hero-content p.lead {
+        font-size: 1rem;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* Ajuste del Hero Slider para que no corte cabezas en fotos verticales */
+    .hero-slider, .carousel-item {
+        height: 65vh; /* En móvil no hace falta pantalla completa, 65% es mejor */
+        min-height: 400px;
+    }
+}
+/* =========================================
+   CORRECCIONES CRÍTICAS PARA MÓVIL (V2)
+   ========================================= */
+
+/* 1. BLOQUEAR EL DESPLAZAMIENTO LATERAL (Arregla el baile de pantalla) */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative;
+}
+
+/* 2. ARREGLAR BARRA AZUL SUPERIOR (Top Bar) */
+@media (max-width: 991px) {
+    .top-bar {
+        text-align: center;
+        padding: 5px 0;
+    }
+    
+    .top-bar .container-fluid {
+        justify-content: center !important; /* Centrar el contenido */
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    /* Reducir tamaño de letra para que quepa todo */
+    .top-bar a, .top-bar span {
+        font-size: 11px !important; 
+        white-space: nowrap; /* Evita que el teléfono se parta en dos líneas */
+    }
+}
+
+/* 3. ARREGLAR EL MENÚ Y LOGO CORTADO */
+@media (max-width: 768px) {
+    /* Quitar la altura fija que rompe el menú */
+    .navbar {
+        height: auto !important;
+        padding: 10px 15px !important; /* Espacio seguro a los lados */
+    }
+
+    /* Asegurar que el LOGO se vea entero */
+    .navbar-brand {
+        margin-right: 0;
+        max-width: 70%; /* Deja sitio al botón hamburguesa */
+    }
+
+    .logo-text {
+        font-size: 1.6rem; /* Logo un poco más pequeño en móvil */
+    }
+
+    /* Arreglar el botón de las 3 líneas (Hamburguesa) */
+    .navbar-toggler {
+        margin-left: auto; /* Empujarlo a la derecha */
+        border: 1px solid #eee;
+    }
+}
+
+/* 4. CORREGIR EL HERO (La foto cortada a la izquierda) */
+.hero-slider, .carousel-item {
+    width: 100%;
+    overflow: hidden; /* Cortar lo que sobresalga */
+}
+
+/* Ajuste de textos grandes en portada para que no se salgan */
+@media (max-width: 576px) {
+    h1.display-2 {
+        font-size: 2.2rem !important; /* Reducir título gigante */
+        word-wrap: break-word; /* Si es muy largo, que baje de línea */
+    }
+    
+    .hero-content {
+        padding: 0 15px; /* Margen para que el texto no toque los bordes */
+    }
+}
