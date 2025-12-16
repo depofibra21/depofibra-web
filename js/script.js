@@ -56,4 +56,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         carousel.cycle(); // Orden explícita de "EMPIEZA A MOVERTE"
     }
+
+    // --- LÓGICA DE FILTRADO DE PRODUCTOS ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productItems = document.querySelectorAll('.product-item-dynamic');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // Evita que la página salte al inicio
+
+            // 1. Gestionar la clase 'active' en los botones
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // 2. Obtener la categoría seleccionada
+            const filterValue = this.getAttribute('data-filter');
+
+            // 3. Filtrar los productos
+            productItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === itemCategory) {
+                    // Mostrar producto
+                    item.classList.remove('d-none');
+                    item.classList.add('animate-fade'); // Añadir animación
+                    
+                    // Reiniciar animación (truco para que se ejecute siempre)
+                    setTimeout(() => {
+                        item.classList.remove('animate-fade'); 
+                        item.style.opacity = '1';
+                    }, 500);
+                    
+                } else {
+                    // Ocultar producto
+                    item.classList.add('d-none'); // Clase de Bootstrap para display:none
+                }
+            });
+            
+            // Opcional: Refrescar AOS si se usa (aunque d-none suele ser suficiente)
+            setTimeout(() => {
+                AOS.refresh(); 
+            }, 100);
+        });
+    });
+    
+    console.log("Depofibra: Product Filter Loaded");
 });

@@ -341,45 +341,85 @@ body.hovering .cursor-outline {
 }
 
 /* --- TARJETAS UNIFORMES (Todas iguales) --- */
+/* --- TARJETAS CALIBRADAS (GRID PERFECTO) --- */
+/* --- TARJETAS COMPACTAS Y ALINEADAS (Versión Corregida) --- */
 .product-card-simple {
     border: 1px solid #eee;
     background: #fff;
     transition: all 0.3s ease;
-    height: 100%; 
+    height: 100%;  /* Se adapta a la altura de la fila */
     display: flex;
     flex-direction: column;
+    border-radius: 4px; /* Un toque sutil de diseño */
+    overflow: hidden;   /* IMPORTANTE: Esto evita que nada "sobresalga" de la tarjeta */
+}
+
+/* Mantiene el color gris si la tarjeta es "bg-light" (como la del catálogo) */
+.product-card-simple.bg-light {
+    background-color: #f8f9fa !important;
 }
 
 .product-card-simple:hover {
     border-color: var(--primary-color);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    z-index: 2;
 }
 
+/* 1. IMAGEN: Altura controlada */
 .product-card-simple .card-img {
-    height: 220px; /* <--- ESTO ES LO QUE HACE QUE SEAN IGUALES */
+    height: 190px; /* Reducido un poco (de 240 a 220) para ganar espacio */
     width: 100%;
     background-color: #f8f8f8;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .product-card-simple .card-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     transition: transform 0.6s ease;
 }
 
-.product-card-simple:hover .card-img img { transform: scale(1.08); }
-
+/* 2. CUERPO: Espacio más ajustado */
 .product-card-simple .card-body {
-    padding: 20px;
-    text-align: center;
+    padding: 1.2rem; /* Menos relleno (de 1.5 a 1.2) para que sea más compacta */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+}
+
+/* 3. TÍTULO: Altura mínima justa */
+.product-card-simple h5 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    /* Reducimos la altura reservada: solo lo justo para 2 líneas */
+    min-height: 2.8rem; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    line-height: 1.3;
+}
+
+/* 4. DESCRIPCIÓN: Flexible pero controlada */
+.product-card-simple p.text-muted {
+    font-size: 0.85rem;
+    /* Reducimos altura reservada */
+    min-height: 2.5rem; 
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center; /* Centrado vertical para que quede bonito si hay poco texto */
+    justify-content: center;
+    line-height: 1.3;
+}
+
+/* 5. PRECIO/BOTÓN: Siempre abajo */
+.product-card-simple p.fw-bold,
+.product-card-simple .btn {
+    margin-top: auto; 
+    padding-top: 10px;
 }
 
 /* --- BANNER CTA PARALLAX --- */
@@ -497,44 +537,208 @@ body.hovering .cursor-outline {
 }
 
 /* --- FOOTER (Estilo Infinity / Profesional) --- */
-footer {
-    background-color: #1a1a1a !important; /* Gris muy oscuro / Negro */
-    color: #b0b0b0; /* Texto gris claro para leer bien */
-    font-size: 0.9rem;
+/* --- FOOTER (Estilo Infinity / Profesional + Fix Móvil) --- */
+/* --- FOOTER REPARADO Y OPTIMIZADO --- */
+.footer-wrapper {
+    background-color: #1a1a1a;
+    color: #b0b0b0;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    font-size: 0.95rem;
 }
 
-footer h6 {
+/* Estilo del Logo en Footer (Independiente del Header) */
+.footer-logo {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #fff !important;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.footer-logo .dot {
+    color: var(--primary-color);
+    font-size: 2.5rem; /* Punto azul grande */
+    line-height: 0;
+    position: relative;
+    top: 2px;
+}
+
+/* Textos y Títulos */
+.footer-desc {
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0;
+}
+
+.footer-heading {
     color: #fff;
     font-weight: 700;
-    letter-spacing: 1px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
     margin-bottom: 1.5rem;
 }
 
-footer a {
-    text-decoration: none;
-    color: #b0b0b0 !important;
-    transition: all 0.3s ease;
+/* Enlaces */
+.footer-links li {
+    margin-bottom: 10px;
 }
 
-footer a:hover {
-    color: var(--primary-color) !important; /* Azul al pasar el ratón */
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 300;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color) !important;
     padding-left: 5px;
 }
 
-footer ul li {
-    margin-bottom: 10px; /* Espacio entre líneas para que no se amontone */
+/* Contacto */
+.footer-contact li {
+    display: flex;
+    align-items: center; /* Alineación perfecta icono-texto */
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-footer .border-top-dark {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* En móvil centramos, en escritorio alineamos a la izquierda */
+@media (min-width: 992px) {
+    .footer-contact li { justify-content: flex-start; }
 }
 
-/* Ajuste del logo en el footer para que se vea blanco */
-footer .logo-text {
-    color: white !important;
+@media (max-width: 991px) {
+    .footer-contact li { 
+        justify-content: center; /* Centrado en móvil */
+        flex-direction: column;  /* Icono arriba, texto abajo */
+    }
+    .footer-contact i { margin-bottom: 8px; margin-right: 0 !important; }
 }
-footer .logo-text span.text-dark {
-    color: white !important; /* Cambia la parte negra del logo a blanco */
+
+.footer-contact i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 20px; /* Ancho fijo para alinear textos verticalmente */
+    text-align: center;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-contact a:hover { color: #fff; }
+
+/* Redes Sociales */
+.social-icons a {
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 15px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+/* En móvil los iconos tienen margen a los lados, no solo a la izquierda */
+@media (max-width: 768px) {
+    .social-icons a { margin: 0 10px; }
+    .footer-heading { margin-top: 10px; } /* Un poco de aire extra */
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.border-white-10 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+/* =========================================
+   AJUSTES MÓVIL PRO (Centrado y Estilizado)
+   ========================================= */
+/* =========================================
+   AJUSTES MÓVIL DEFINITIVOS
+   ========================================= */
+@media (max-width: 991px) {
+    /* Centrado general del footer */
+    .footer-section {
+        text-align: center !important;
+        padding-top: 40px;
+    }
+
+    /* Centrar columnas */
+    .footer-section .col-lg-4, 
+    .footer-section .col-lg-2, 
+    .footer-section .col-lg-3,
+    .footer-section .col-6 {
+        text-align: center !important;
+        margin-bottom: 30px;
+    }
+
+    /* Títulos con línea decorativa */
+    .footer-heading {
+        display: inline-block;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    /* --- ARREGLO LISTA DE CONTACTO (Iconos Arriba) --- */
+    /* Usamos !important para machacar cualquier clase de Bootstrap (como d-flex) */
+    .footer-contact li {
+        display: flex !important; 
+        flex-direction: column !important; /* Fuerza icono arriba, texto abajo */
+        align-items: center !important;    /* Centra horizontalmente */
+        justify-content: center !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Estilo del Icono en Móvil */
+    .footer-contact li i {
+        margin-right: 0 !important;   /* Quita el margen lateral del escritorio */
+        margin-bottom: 10px !important; /* Añade espacio debajo del icono */
+        font-size: 1.5rem;            /* Icono un poco más grande */
+        color: var(--primary-color);
+        /* Opcional: Si quieres círculo de fondo, descomenta las líneas de abajo */
+        /* background: rgba(255,255,255,0.05);
+           width: 50px; height: 50px; line-height: 50px; border-radius: 50%; */
+    }
+    
+    /* Texto del contacto */
+    .footer-contact li a, 
+    .footer-contact li span {
+        text-align: center;
+        display: block;
+    }
+
+    /* Enlaces de Explorar/Ayuda (Más espacio para el dedo) */
+    .footer-links a {
+        display: block;
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+
+    /* Redes Sociales centradas */
+    .social-icons {
+        justify-content: center !important;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Copyright */
+    .footer-bottom .text-md-end, 
+    .footer-bottom .text-md-start {
+        text-align: center !important;
+    }
 }
 
 /* --- CORRECCIÓN MÓVIL: NAVBAR --- */
@@ -685,3 +889,30 @@ html, body {
         display: inline-block;
     }
 }
+
+/* --- ESTILOS PARA EL FILTRO DE PRODUCTOS --- */
+
+/* Estilo para la categoría seleccionada */
+.category-list a.active {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    padding-left: 10px; /* Desplazamiento visual */
+    border-left: 3px solid var(--primary-color); /* Línea indicadora */
+}
+
+/* Animación de entrada para los productos al filtrar */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade {
+    animation: fadeInScale 0.5s ease-out forwards;
+}
+
