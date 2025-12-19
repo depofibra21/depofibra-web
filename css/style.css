@@ -12,14 +12,24 @@
     color: #01488e;
 }
 
+/* --- BLOQUEO DE SCROLL HORIZONTAL (Solución Móvil) --- */
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important; /* El candado: impide mover a los lados */
+    position: relative; /* Mantiene todo en su sitio */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Jost', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
-    padding-top: 80px;
-    cursor: none;
-    /* OCULTAR CURSOR NATIVO */
+    /* Mantenemos el padding-top para tu menú fijo */
+    padding-top: 80px; 
+    cursor: none; /* Tu cursor personalizado */
 }
 
 /* --- CURSOR PERSONALIZADO (FIX FINAL: Visible en Cisternas y Portátiles) --- */
@@ -928,9 +938,30 @@ body.hovering .cursor-outline {
         text-align: center !important;
     }
 
+    /* Listas centradas en móvil */
     .list-unstyled {
-        display: inline-block;
-        text-align: left;
+        display: block; /* Ocupa todo el ancho */
+        text-align: center !important; /* Fuerza el texto al centro */
+        padding: 0;
+    }
+
+    /* Para centrar específicamente los elementos flexibles (como la lista de categorías) */
+    .category-list a {
+        justify-content: center !important; /* Centra el contenido flex */
+        padding-left: 0 !important; /* Quita el relleno lateral */
+        border-left: none !important; /* Quita la línea lateral si la hubiera */
+    }
+    
+    /* Para centrar los checks de "Sobre Nosotros" */
+    .list-checked li {
+        text-align: center;
+        padding-left: 0;
+        list-style-position: inside; /* Mete el icono dentro de la línea para centrarlo visualmente */
+    }
+    .list-checked li::before {
+        position: relative; /* Cambia de absoluto a relativo para fluir con el texto */
+        left: auto; top: auto;
+        margin-right: 8px;
     }
 
     /* Navbar Móvil */
