@@ -1,7 +1,8 @@
-/* --- Depofibra: Estilo Completo (Menú Blanco + Cursor Personalizado) --- */
+/* --- Depofibra: Estilo Completo (Menú Blanco + Cursor Personalizado + Footer Estructurado) --- */
 
 :root {
-    --primary-color: #01488e; /* Azul Corporativo */
+    --primary-color: #01488e;
+    /* Azul Corporativo */
     --text-dark: #111111;
     --text-muted: #757575;
     --bg-light: #f9f9f9;
@@ -16,129 +17,177 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 80px; 
-    cursor: none; /* OCULTAR CURSOR NATIVO */
+    padding-top: 80px;
+    cursor: none;
+    /* OCULTAR CURSOR NATIVO */
 }
 
-/* --- CURSOR PERSONALIZADO --- */
+/* --- CURSOR PERSONALIZADO (FIX FINAL: Visible en Cisternas y Portátiles) --- */
+
+/* 1. El PUNTO central (Guía) */
 .cursor-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background-color: var(--primary-color);
+    border: 2px solid #ffffff;
+    /* Borde blanco para contraste */
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 2147483647;
     pointer-events: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s;
 }
 
+/* 2. El CÍRCULO exterior (Seguidor) */
 .cursor-outline {
     width: 40px;
     height: 40px;
-    border: 1px solid var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 1px rgba(1, 72, 142, 0.4);
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 9998;
+    z-index: 2147483646;
     pointer-events: none;
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
-/* Efecto cuando pasa por encima de un enlace */
+/* Efecto al pasar por enlaces */
+body.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.6);
+    background-color: #fff;
+    border-color: var(--primary-color);
+}
+
 body.hovering .cursor-outline {
     width: 60px;
     height: 60px;
     background-color: rgba(1, 72, 142, 0.1);
-    border-color: transparent;
+    border-color: var(--primary-color);
+    box-shadow: none;
 }
 
-/* En móviles mostramos el cursor normal */
-@media (hover: none) {
-    body { cursor: auto; }
-    .cursor-dot, .cursor-outline { display: none; }
+/* OCULTAR SOLO EN MÓVILES/TABLETS (Menores de 992px) */
+@media (max-width: 992px) {
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none !important;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+
+    a,
+    button,
+    .btn,
+    .product-item,
+    .nav-link {
+        cursor: pointer !important;
+    }
 }
 
 
 /* Utilidades */
-.tracking-1 { letter-spacing: 1px; }
-.tracking-2 { letter-spacing: 2px; }
-.tracking-wide { letter-spacing: 1.5px; }
-.tracking-widest { letter-spacing: 3px; }
-.py-6 { padding-top: 6rem; padding-bottom: 6rem; }
-
-
-/* --- NAVEGACIÓN (Optimizada: Máximo Logo, Mínima Barra) --- */
-.navbar {
-    height: 90px; /* Altura fija: Fina y elegante */
-    padding: 0 !important; /* IMPORTANTE: Quitamos relleno para aprovechar el espacio */
-    background-color: #ffffff !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center; /* Centra todo verticalmente */
+.tracking-1 {
+    letter-spacing: 1px;
 }
 
-/* Contenedor del Logo */
+.tracking-2 {
+    letter-spacing: 2px;
+}
+
+.tracking-wide {
+    letter-spacing: 1.5px;
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+.py-6 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+    height: 90px;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
 .navbar-brand {
     height: 100%;
     display: flex;
-    align-items: center; /* Centra el logo perfectamente */
+    align-items: center;
     padding: 0;
     margin-right: 2rem;
 }
 
-/* IMAGEN DEL LOGO */
 .navbar-brand img {
-    height: 80px !important; /* TAMAÑO GRANDE (Ocupa casi toda la barra) */
+    height: 80px !important;
     width: auto;
-    object-fit: contain; /* Asegura que se vea entero */
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .navbar-brand:hover img {
-    transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
+    transform: scale(1.03);
 }
 
-/* Enlaces del menú */
-.nav-link, .nav-icons a {
+.nav-link,
+.nav-icons a {
     color: #111111 !important;
     font-weight: 500;
     margin: 0 15px;
     transition: color 0.3s ease;
 }
 
-.navbar-toggler-icon { filter: none !important; }
+.navbar-toggler-icon {
+    filter: none !important;
+}
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--primary-color) !important;
 }
 
-/* --- LOGO TIPOGRÁFICO PERSONALIZADO (H1) --- */
+/* LOGO TIPOGRÁFICO */
 .logo-text {
-    font-family: 'Jost', sans-serif; /* Tu tipografía moderna */
-    font-size: 2.2rem;   /* Tamaño grande y legible */
-    font-weight: 800;    /* Extra Bold (muy grueso) */
-    color: var(--primary-color); /* Azul DEPO */
-    text-transform: uppercase;   /* Mayúsculas */
-    letter-spacing: -1px;        /* Unir un poco las letras (estilo moderno) */
-    line-height: 1;              /* Evita que empuje la barra hacia abajo */
+    font-family: 'Jost', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1;
     display: flex;
     align-items: center;
 }
 
-/* El punto final azul para darle toque de diseño */
 .logo-text .dot {
     color: var(--primary-color);
-    font-size: 3rem; /* El punto un poco más grande */
+    font-size: 3rem;
     line-height: 0;
     margin-left: 2px;
     position: relative;
     top: -2px;
 }
 
-/* Ajuste para móviles (un poco más pequeño para que quepa) */
 @media (max-width: 768px) {
     .logo-text {
         font-size: 1.8rem;
@@ -146,49 +195,52 @@ body.hovering .cursor-outline {
 }
 
 /* --- HERO SECTION --- */
-.hero-slider, .carousel-item { 
+.hero-slider,
+.carousel-item {
     height: calc(100vh - 80px);
-    min-height: 500px; 
+    min-height: 500px;
 }
 
-/* --- MEJORA DE IMÁGENES DE FONDO (Efecto Dark Premium) --- */
-
-/* 1. Oscurecemos la imagen base MUCHO MÁS (al 50%) */
-/* Aplicamos esto tanto al Slider (.bg-img) como al Banner de abajo (.bg-img-fixed) */
-.bg-img, .cta-parallax .bg-img-fixed {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center;
-    
-    /* TRUCO: Bajamos el brillo a la mitad y subimos un poco el contraste */
-    filter: brightness(0.5) contrast(1.1); 
-    
-    /* Transición suave para el efecto zoom del slider */
+.bg-img,
+.cta-parallax .bg-img-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) contrast(1.1);
     transform: scale(1);
     transition: transform 8s ease;
 }
 
-/* Efecto zoom solo para el slider activo */
-.carousel-item.active .bg-img { transform: scale(1.05); }
-.cta-parallax .bg-img-fixed { background-attachment: fixed; } /* Mantiene el efecto parallax abajo */
+.carousel-item.active .bg-img {
+    transform: scale(1.05);
+}
 
+.cta-parallax .bg-img-fixed {
+    background-attachment: fixed;
+}
 
-/* 2. Capa Superpuesta (Overlay) MÁS SOLIDA */
-/* Esto pone un velo negro fuerte sobre la foto */
 .hero-overlay-dark {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Negro al 60% de opacidad (Muy visible) */
-    background-color: rgba(0, 0, 0, 0.466); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
     z-index: 1;
 }
 
-/* Ajuste específico para el Banner "Proyectos a Medida" si lo quieres azulado oscuro */
-/* Si prefieres negro también aquí, borra este bloque */
 .cta-parallax .hero-overlay-dark {
-    background-color: rgba(1, 40, 80, 0.85) !important; /* Azul muy oscuro y denso */
+    background-color: rgba(1, 40, 80, 0.85) !important;
 }
 
-.hero-content { position: relative; z-index: 2; }
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
 .btn-link-underline {
     text-decoration: none;
@@ -204,107 +256,123 @@ body.hovering .cursor-outline {
     border-color: var(--primary-color);
 }
 
-/* --- RESTO DE ESTILOS --- */
+/* --- BOTONES --- */
 .btn-primary {
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
     border-radius: 0;
     color: white !important;
 }
+
 .btn-primary:hover {
     background-color: white;
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color);
 }
+
 .btn-white {
     background-color: #fff;
     color: #111;
     border: none;
     transition: all 0.3s;
 }
+
 .btn-white:hover {
     background-color: var(--primary-color);
     color: #fff;
 }
 
-/* --- MARQUEE INFINITO (Sin huecos) --- */
+/* --- MARQUEE --- */
 .marquee-wrap {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    background: #fff; /* Asegura fondo blanco */
+    background: #fff;
 }
 
 .marquee-text {
     display: inline-block;
-    width: max-content; /* El ancho se adapta al contenido (muy largo) */
-    padding-left: 0%; /* Empieza fuera de la pantalla */
-    animation: marquee 40s linear infinite; /* Un poco más lento para leerse mejor */
+    width: max-content;
+    padding-left: 0%;
+    animation: marquee 40s linear infinite;
 }
 
-/* Animación: Mueve el texto de derecha a izquierda infinitamente */
 @keyframes marquee {
     0% {
         transform: translateX(0);
     }
+
     100% {
-        /* Movemos solo hasta la mitad o un tercio, donde el texto ya se repite */
         transform: translateX(-50%);
     }
 }
 
-/* Al poner el ratón encima, la animación se pausa (opcional, muy útil) */
 .marquee-wrap:hover .marquee-text {
     animation-play-state: paused;
 }
 
-/* Productos / Grid */
-.product-item { cursor: pointer; }
-.img-wrap { overflow: hidden; position: relative; }
-.transition-zoom { transition: transform 0.6s ease; }
-.product-item:hover .transition-zoom { transform: scale(1.08); }
+/* Productos */
+.product-item {
+    cursor: pointer;
+}
+
+.img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.transition-zoom {
+    transition: transform 0.6s ease;
+}
+
+.product-item:hover .transition-zoom {
+    transform: scale(1.08);
+}
 
 .product-overlay {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
     background: linear-gradient(to top, rgb(0, 0, 0), transparent);
-    opacity: 5 !important; 
+    opacity: 5 !important;
     transition: 0.4s;
 }
-.product-item:hover .product-overlay { 
-    opacity: 12; 
-}
 
+.product-item:hover .product-overlay {
+    opacity: 12;
+}
 
 .btn-quick-view {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -40%);
-    width: 45px; height: 45px;
+    width: 45px;
+    height: 45px;
     background: #fff;
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text-dark);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transition: all 0.3s;
 }
-.btn-quick-view:hover { background: var(--primary-color); color: #fff; }
-.product-item:hover .btn-quick-view { opacity: 1; transform: translate(-50%, -50%); }
 
-/* Footer */
-.border-white-10 { border-color: rgba(255,255,255,0.1) !important; }
-.border-white-50 { border-color: rgba(255,255,255,0.5) !important; }
-.hover-white:hover { color: #fff !important; padding-left: 5px; transition: 0.3s; }
-.form-control::placeholder { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+.btn-quick-view:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
 
+.product-item:hover .btn-quick-view {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
 
-/* --- SECCIÓN BEST SELLERS (Estilo Catálogo) --- */
-
-/* Sidebar de Categorías */
+/* --- BEST SELLERS & CATEGORIES --- */
 .category-list li {
     margin-bottom: 12px;
 }
@@ -322,7 +390,7 @@ body.hovering .cursor-outline {
 
 .category-list a:hover {
     color: var(--primary-color);
-    padding-left: 5px; /* Pequeño desplazamiento elegante */
+    padding-left: 5px;
 }
 
 .category-list span {
@@ -330,7 +398,6 @@ body.hovering .cursor-outline {
     font-size: 0.85rem;
 }
 
-/* Banner en Sidebar */
 .sidebar-banner {
     background-color: var(--primary-color);
     color: white;
@@ -340,21 +407,17 @@ body.hovering .cursor-outline {
     overflow: hidden;
 }
 
-/* --- TARJETAS UNIFORMES (Todas iguales) --- */
-/* --- TARJETAS CALIBRADAS (GRID PERFECTO) --- */
-/* --- TARJETAS COMPACTAS Y ALINEADAS (Versión Corregida) --- */
 .product-card-simple {
     border: 1px solid #eee;
     background: #fff;
     transition: all 0.3s ease;
-    height: 100%;  /* Se adapta a la altura de la fila */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    border-radius: 4px; /* Un toque sutil de diseño */
-    overflow: hidden;   /* IMPORTANTE: Esto evita que nada "sobresalga" de la tarjeta */
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-/* Mantiene el color gris si la tarjeta es "bg-light" (como la del catálogo) */
 .product-card-simple.bg-light {
     background-color: #f8f9fa !important;
 }
@@ -362,13 +425,12 @@ body.hovering .cursor-outline {
 .product-card-simple:hover {
     border-color: var(--primary-color);
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     z-index: 2;
 }
 
-/* 1. IMAGEN: Altura controlada */
 .product-card-simple .card-img {
-    height: 190px; /* Reducido un poco (de 240 a 220) para ganar espacio */
+    height: 190px;
     width: 100%;
     background-color: #f8f8f8;
     position: relative;
@@ -383,70 +445,64 @@ body.hovering .cursor-outline {
     transition: transform 0.6s ease;
 }
 
-/* 2. CUERPO: Espacio más ajustado */
 .product-card-simple .card-body {
-    padding: 1.2rem; /* Menos relleno (de 1.5 a 1.2) para que sea más compacta */
+    padding: 1.2rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* 3. TÍTULO: Altura mínima justa */
 .product-card-simple h5 {
     font-size: 1.05rem;
     margin-bottom: 0.5rem;
-    /* Reducimos la altura reservada: solo lo justo para 2 líneas */
-    min-height: 2.8rem; 
+    min-height: 2.8rem;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     line-height: 1.3;
 }
 
-/* 4. DESCRIPCIÓN: Flexible pero controlada */
 .product-card-simple p.text-muted {
     font-size: 0.85rem;
-    /* Reducimos altura reservada */
-    min-height: 2.5rem; 
+    min-height: 2.5rem;
     margin-bottom: 1rem;
     display: flex;
-    align-items: center; /* Centrado vertical para que quede bonito si hay poco texto */
+    align-items: center;
     justify-content: center;
     line-height: 1.3;
 }
 
-/* 5. PRECIO/BOTÓN: Siempre abajo */
 .product-card-simple p.fw-bold,
 .product-card-simple .btn {
-    margin-top: auto; 
+    margin-top: auto;
     padding-top: 10px;
 }
 
-/* --- BANNER CTA PARALLAX --- */
-/* --- BANNER CTA PARALLAX (Compacto) --- */
+/* --- BANNER CTA --- */
 .cta-parallax {
     position: relative;
     overflow: hidden;
-    /* Reducido de 500px a 300px para que sea una franja elegante */
-    min-height: 300px; 
+    min-height: 300px;
 }
 
-/* Fondo fijo para efecto de profundidad */
 .cta-parallax .bg-img-fixed {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* Botón transparente */
 .btn-outline-white-thick {
     border: 2px solid #fff;
     color: #fff;
     background: transparent;
     transition: all 0.3s;
-    font-size: 0.85rem; /* Letra del botón más pequeña */
-    padding: 10px 25px; /* Botón más compacto */
+    font-size: 0.85rem;
+    padding: 10px 25px;
 }
 
 .btn-outline-white-thick:hover {
@@ -454,35 +510,11 @@ body.hovering .cursor-outline {
     color: var(--primary-color);
 }
 
-/* Fondo fijo para efecto de profundidad */
-.cta-parallax .bg-img-fixed {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* LA CLAVE DEL EFECTO */
-}
-
-/* Botón transparente grueso para destacar */
-.btn-outline-white-thick {
-    border: 2px solid #fff;
-    color: #fff;
-    background: transparent;
-    transition: all 0.3s;
-}
-
-.btn-outline-white-thick:hover {
-    background: #fff;
-    color: var(--primary-color);
-}
-
-/* --- SECCIÓN FILOSOFÍA / NOSOTROS (Estructurada) --- */
-
-/* Línea vertical decorativa al lado del texto */
+/* --- SECCIÓN NOSOTROS --- */
 .border-start-primary {
     border-left: 4px solid var(--primary-color);
 }
 
-/* Lista de características con check azul */
 .list-checked li {
     position: relative;
     padding-left: 30px;
@@ -492,7 +524,7 @@ body.hovering .cursor-outline {
 }
 
 .list-checked li::before {
-    content: '\f00c'; /* Icono check de FontAwesome */
+    content: '\f00c';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
@@ -501,7 +533,6 @@ body.hovering .cursor-outline {
     color: var(--primary-color);
 }
 
-/* Caja de estadísticas */
 .stats-box {
     background-color: #f8f9fa;
     border: 1px solid #eee;
@@ -511,34 +542,31 @@ body.hovering .cursor-outline {
 
 .stats-box:hover {
     background-color: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border-color: transparent;
     transform: translateY(-5px);
 }
 
-/* --- BOTÓN CTA LLAMATIVO (Sólido) --- */
 .btn-cta-solid {
-    background-color: var(--primary-color); /* Fondo Azul */
-    color: #ffffff !important; /* Texto Blanco */
+    background-color: var(--primary-color);
+    color: #ffffff !important;
     border: 2px solid var(--primary-color);
-    padding: 10px 30px; /* Un poco más grande */
-    font-weight: 700;   /* Letra gruesa */
-    text-transform: uppercase; /* Mayúsculas para urgencia */
+    padding: 10px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(1, 72, 142, 0.25); /* Sombra difuminada para resaltar */
+    box-shadow: 0 5px 15px rgba(1, 72, 142, 0.25);
     transition: all 0.3s ease;
 }
 
 .btn-cta-solid:hover {
-    background-color: #01366b; /* Azul más oscuro al pasar ratón */
+    background-color: #01366b;
     border-color: #01366b;
-    transform: translateY(-2px); /* Se eleva un poco */
+    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(1, 72, 142, 0.35);
 }
 
-/* --- FOOTER (Estilo Infinity / Profesional) --- */
-/* --- FOOTER (Estilo Infinity / Profesional + Fix Móvil) --- */
-/* --- FOOTER REPARADO Y OPTIMIZADO --- */
+/* --- FOOTER GENERAL (Estilo Base) --- */
 .footer-wrapper {
     background-color: #1a1a1a;
     color: #b0b0b0;
@@ -547,7 +575,6 @@ body.hovering .cursor-outline {
     font-size: 0.95rem;
 }
 
-/* Estilo del Logo en Footer (Independiente del Header) */
 .footer-logo {
     font-family: 'Jost', sans-serif;
     font-size: 1.8rem;
@@ -559,13 +586,12 @@ body.hovering .cursor-outline {
 
 .footer-logo .dot {
     color: var(--primary-color);
-    font-size: 2.5rem; /* Punto azul grande */
+    font-size: 2.5rem;
     line-height: 0;
     position: relative;
     top: 2px;
 }
 
-/* Textos y Títulos */
 .footer-desc {
     font-weight: 300;
     line-height: 1.6;
@@ -582,7 +608,6 @@ body.hovering .cursor-outline {
     margin-bottom: 1.5rem;
 }
 
-/* Enlaces */
 .footer-links li {
     margin-bottom: 10px;
 }
@@ -599,31 +624,23 @@ body.hovering .cursor-outline {
     padding-left: 5px;
 }
 
-/* Contacto */
 .footer-contact li {
     display: flex;
-    align-items: center; /* Alineación perfecta icono-texto */
+    align-items: center;
     margin-bottom: 15px;
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* En móvil centramos, en escritorio alineamos a la izquierda */
 @media (min-width: 992px) {
-    .footer-contact li { justify-content: flex-start; }
-}
-
-@media (max-width: 991px) {
-    .footer-contact li { 
-        justify-content: center; /* Centrado en móvil */
-        flex-direction: column;  /* Icono arriba, texto abajo */
+    .footer-contact li {
+        justify-content: flex-start;
     }
-    .footer-contact i { margin-bottom: 8px; margin-right: 0 !important; }
 }
 
 .footer-contact i {
     color: var(--primary-color);
     margin-right: 15px;
-    width: 20px; /* Ancho fijo para alinear textos verticalmente */
+    width: 20px;
     text-align: center;
 }
 
@@ -633,21 +650,16 @@ body.hovering .cursor-outline {
     transition: 0.3s;
 }
 
-.footer-contact a:hover { color: #fff; }
+.footer-contact a:hover {
+    color: #fff;
+}
 
-/* Redes Sociales */
 .social-icons a {
     color: rgba(255, 255, 255, 0.5);
     margin-left: 15px;
     font-size: 1.1rem;
     transition: 0.3s;
     text-decoration: none;
-}
-
-/* En móvil los iconos tienen margen a los lados, no solo a la izquierda */
-@media (max-width: 768px) {
-    .social-icons a { margin: 0 10px; }
-    .footer-heading { margin-top: 10px; } /* Un poco de aire extra */
 }
 
 .social-icons a:hover {
@@ -659,253 +671,41 @@ body.hovering .cursor-outline {
     border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-
-/* =========================================
-   AJUSTES MÓVIL PRO (Centrado y Estilizado)
-   ========================================= */
-/* =========================================
-   AJUSTES MÓVIL DEFINITIVOS
-   ========================================= */
+/* --- BARRA AZUL SUPERIOR (MÓVIL) --- */
 @media (max-width: 991px) {
-    /* Centrado general del footer */
-    .footer-section {
-        text-align: center !important;
-        padding-top: 40px;
-    }
-
-    /* Centrar columnas */
-    .footer-section .col-lg-4, 
-    .footer-section .col-lg-2, 
-    .footer-section .col-lg-3,
-    .footer-section .col-6 {
-        text-align: center !important;
-        margin-bottom: 30px;
-    }
-
-    /* Títulos con línea decorativa */
-    .footer-heading {
-        display: inline-block;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding-bottom: 5px;
-        margin-bottom: 20px;
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-    }
-
-    /* --- ARREGLO LISTA DE CONTACTO (Iconos Arriba) --- */
-    /* Usamos !important para machacar cualquier clase de Bootstrap (como d-flex) */
-    .footer-contact li {
-        display: flex !important; 
-        flex-direction: column !important; /* Fuerza icono arriba, texto abajo */
-        align-items: center !important;    /* Centra horizontalmente */
-        justify-content: center !important;
-        margin-bottom: 25px !important;
-    }
-
-    /* Estilo del Icono en Móvil */
-    .footer-contact li i {
-        margin-right: 0 !important;   /* Quita el margen lateral del escritorio */
-        margin-bottom: 10px !important; /* Añade espacio debajo del icono */
-        font-size: 1.5rem;            /* Icono un poco más grande */
-        color: var(--primary-color);
-        /* Opcional: Si quieres círculo de fondo, descomenta las líneas de abajo */
-        /* background: rgba(255,255,255,0.05);
-           width: 50px; height: 50px; line-height: 50px; border-radius: 50%; */
-    }
-    
-    /* Texto del contacto */
-    .footer-contact li a, 
-    .footer-contact li span {
-        text-align: center;
-        display: block;
-    }
-
-    /* Enlaces de Explorar/Ayuda (Más espacio para el dedo) */
-    .footer-links a {
-        display: block;
-        padding: 8px 0;
-        font-size: 1rem;
-    }
-
-    /* Redes Sociales centradas */
-    .social-icons {
-        justify-content: center !important;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    
-    /* Copyright */
-    .footer-bottom .text-md-end, 
-    .footer-bottom .text-md-start {
-        text-align: center !important;
-    }
-}
-
-/* --- CORRECCIÓN MÓVIL: NAVBAR --- */
-@media (max-width: 991px) {
-    /* Permitir que la barra crezca cuando se abre el menú */
-    .navbar {
-        height: auto !important; 
-        min-height: 80px;
-        padding: 10px 0 !important;
-    }
-    
-    /* Ajustar el logo para que no choque con el botón */
-    .navbar-brand img {
-        height: 50px !important; /* Más pequeño en móvil */
-    }
-    
-    .logo-text {
-        font-size: 1.5rem; /* Texto DEPOFIBRA más pequeño */
-    }
-
-    /* Dar espacio a los enlaces cuando se despliegan */
-    .navbar-collapse {
-        margin-top: 15px;
-        background-color: white; /* Fondo blanco sólido para leer bien */
-        padding-bottom: 20px;
-        border-top: 1px solid #eee;
-    }
-    
-    /* Botón de Pedir Presupuesto centrado y con margen en móvil */
-    .navbar-nav .nav-item .btn-cta-solid {
-        margin-top: 20px !important;
-        width: 100%; /* Botón ancho completo en móvil es más fácil de pulsar */
-        display: block;
-    }
-}
-
-/* --- CORRECCIÓN MÓVIL: TIPOGRAFÍA Y ESPACIOS --- */
-@media (max-width: 768px) {
-    /* Reducir espacios verticales a la mitad */
-    .py-6 { 
-        padding-top: 3rem; 
-        padding-bottom: 3rem; 
-    }
-
-    /* Títulos más manejables */
-    h1.display-2 {
-        font-size: 2.5rem; /* Dejar de ser gigantes */
-    }
-    
-    h2.display-5 {
-        font-size: 2rem;
-    }
-
-    /* El texto del Slider Hero se salía o tapaba la foto */
-    .hero-content p.lead {
-        font-size: 1rem;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    /* Ajuste del Hero Slider para que no corte cabezas en fotos verticales */
-    .hero-slider, .carousel-item {
-        height: 65vh; /* En móvil no hace falta pantalla completa, 65% es mejor */
-        min-height: 400px;
-    }
-}
-/* =========================================
-   CORRECCIONES CRÍTICAS PARA MÓVIL (V2)
-   ========================================= */
-
-/* 1. BLOQUEAR EL DESPLAZAMIENTO LATERAL (Arregla el baile de pantalla) */
-html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    position: relative;
-}
-
-/* 2. ARREGLAR BARRA AZUL SUPERIOR (Top Bar) */
-@media (max-width: 991px) {
-    .top-bar {
-        text-align: center;
-        padding: 5px 0;
-    }
-    
     .top-bar .container-fluid {
-        justify-content: center !important; /* Centrar el contenido */
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-    
-    /* Reducir tamaño de letra para que quepa todo */
-    .top-bar a, .top-bar span {
-        font-size: 11px !important; 
-        white-space: nowrap; /* Evita que el teléfono se parta en dos líneas */
-    }
-}
-
-/* 3. ARREGLAR EL MENÚ Y LOGO CORTADO */
-@media (max-width: 768px) {
-    /* Quitar la altura fija que rompe el menú */
-    .navbar {
-        height: auto !important;
-        padding: 10px 15px !important; /* Espacio seguro a los lados */
-    }
-
-    /* Asegurar que el LOGO se vea entero */
-    .navbar-brand {
-        margin-right: 0;
-        max-width: 70%; /* Deja sitio al botón hamburguesa */
-    }
-
-    .logo-text {
-        font-size: 1.6rem; /* Logo un poco más pequeño en móvil */
-    }
-
-    /* Arreglar el botón de las 3 líneas (Hamburguesa) */
-    .navbar-toggler {
-        margin-left: auto; /* Empujarlo a la derecha */
-        border: 1px solid #eee;
-    }
-}
-
-/* 4. CORREGIR EL HERO (La foto cortada a la izquierda) */
-.hero-slider, .carousel-item {
-    width: 100%;
-    overflow: hidden; /* Cortar lo que sobresalga */
-}
-
-/* --- ARREGLO BARRA AZUL SUPERIOR (MÓVIL) --- */
-@media (max-width: 991px) {
-    /* 1. Centrar el contenedor principal */
-    .top-bar .container-fluid {
-        justify-content: center !important; /* Fuerza el centrado */
+        justify-content: center !important;
         padding-left: 10px !important;
         padding-right: 10px !important;
         text-align: center;
     }
 
-    /* 2. Anular el empuje a la derecha del texto de WhatsApp */
     .top-bar .ms-auto {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        width: 100%; /* Ocupar todo el ancho para centrarse bien */
+        width: 100%;
     }
 
-    /* 3. Ajustar tamaño de letra para que no se corte */
     .top-bar a {
-        font-size: 12px !important; /* Tamaño legible pero compacto */
+        font-size: 12px !important;
         display: inline-block;
     }
 }
 
-/* --- ESTILOS PARA EL FILTRO DE PRODUCTOS --- */
-
-/* Estilo para la categoría seleccionada */
+/* --- FILTROS --- */
 .category-list a.active {
     color: var(--primary-color) !important;
     font-weight: 700;
-    padding-left: 10px; /* Desplazamiento visual */
-    border-left: 3px solid var(--primary-color); /* Línea indicadora */
+    padding-left: 10px;
+    border-left: 3px solid var(--primary-color);
 }
 
-/* Animación de entrada para los productos al filtrar */
 @keyframes fadeInScale {
     from {
         opacity: 0;
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -916,20 +716,17 @@ html, body {
     animation: fadeInScale 0.5s ease-out forwards;
 }
 
-/* --- DROPDOWN MINIMALISTA PERSONALIZADO --- */
-
-/* Estilo del menú desplegable */
+/* --- DROPDOWN --- */
 .dropdown-menu {
     background-color: #ffffff;
-    margin-top: 0; /* Pegado a la barra */
+    margin-top: 0;
     padding: 10px 0;
-    border-radius: 0; /* Esquinas rectas (estilo nórdico) */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave, no agresiva */
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     animation: fadeInSlide 0.3s ease;
     border: none;
 }
 
-/* Enlaces dentro del dropdown */
 .dropdown-item {
     font-size: 0.95rem;
     font-weight: 400;
@@ -938,36 +735,38 @@ html, body {
     transition: all 0.2s ease;
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
-    background-color: #f4f6f8; /* Gris muy tenue al pasar ratón */
-    color: var(--primary-color); /* Texto azul corporativo */
-    padding-left: 30px; /* Pequeño desplazamiento elegante a la derecha */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #f4f6f8;
+    color: var(--primary-color);
+    padding-left: 30px;
 }
 
-/* Cabecera de grupos (ej: DEPÓSITOS) */
 .dropdown-header {
     padding: 8px 25px;
     font-size: 0.75rem;
     margin-top: 5px;
 }
 
-/* --- LÓGICA HOVER (Solo Desktop) --- */
-/* En móviles seguiremos usando click para mejor experiencia */
 @media (min-width: 992px) {
     .nav-item.dropdown:hover .dropdown-menu {
         display: block;
     }
-    
-    /* Pequeña animación de entrada */
+
     @keyframes fadeInSlide {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 
-/* --- CARRUSEL GALERÍA CON CONTROLES EXTERNOS (VERSIÓN MEJORADA FLECHAS) --- */
-
-/* Contenedor de las imágenes (Se mantiene igual que el paso anterior) */
+/* --- CARRUSEL GALERÍA --- */
 .gallery-carousel-wrapper {
     height: 500px;
     background-color: #ffffff;
@@ -979,15 +778,13 @@ html, body {
 .gallery-carousel-wrapper img {
     height: 100%;
     width: 100%;
-    object-fit: contain; /* Las fotos se ven enteras */
+    object-fit: contain;
     object-position: center;
 }
 
-/* --- Nueva Barra de Controles Inferior --- */
 .external-controls-container {
     position: relative;
     background: #fff;
-    /* CAMBIO 1: Aumentamos el padding lateral de 60px a 90px para dar espacio a las nuevas flechas */
     padding: 20px 90px;
     border-radius: 0 0 8px 8px;
     border: 1px solid #eee;
@@ -997,12 +794,11 @@ html, body {
     align-items: center;
 }
 
-/* Indicadores (Puntitos) - Se mantienen igual */
 .external-controls-container .carousel-indicators {
     position: static;
     margin: 0;
     display: flex;
-    gap: 10px; /* Un poco más de espacio entre puntos */
+    gap: 10px;
 }
 
 .external-controls-container .carousel-indicators [data-bs-target] {
@@ -1018,178 +814,126 @@ html, body {
 
 .external-controls-container .carousel-indicators .active {
     background-color: var(--primary-color);
-    transform: scale(1.3); /* Un poco más grande el activo */
+    transform: scale(1.3);
 }
 
-/* --- ESTILOS DE FLECHAS MEJORADOS --- */
 .external-nav-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /* CAMBIO 2: Un poco más grandes (eran 40px) para mejor clic */
     width: 48px;
     height: 48px;
-    background: #ffffff; /* Fondo blanco puro */
+    background: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-dark);
-    /* CAMBIO 3: Borde más visible y sombra suave para que destaquen */
     border: 2px solid #e9ecef;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más "elástica" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 1;
     z-index: 10;
     cursor: pointer;
 }
 
-/* Efecto Hover más dinámico */
 .external-nav-arrow:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-    /* Sombra azulada y ligero efecto de elevación */
     box-shadow: 0 8px 15px rgba(1, 72, 142, 0.25);
     transform: translateY(-50%) scale(1.05);
 }
 
-/* CAMBIO 4: Más separadas de los bordes (antes 15px, ahora 30px) */
-.arrow-prev { left: 30px; }
-.arrow-next { right: 30px; }
+.arrow-prev {
+    left: 30px;
+}
 
-/* Iconos de las flechas */
+.arrow-next {
+    right: 30px;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    width: 1.4rem; /* Ajuste ligero del tamaño del icono */
+    width: 1.4rem;
     height: 1.4rem;
-    filter: invert(0.2) sepia(0) saturate(0) hue-rotate(0deg) brightness(0.3); /* Gris oscuro más neutro */
+    filter: invert(0.2) sepia(0) saturate(0) hue-rotate(0deg) brightness(0.3);
 }
+
 .external-nav-arrow:hover .carousel-control-prev-icon,
 .external-nav-arrow:hover .carousel-control-next-icon {
-    filter: brightness(0) invert(1); /* Blanco al pasar el ratón */
+    filter: brightness(0) invert(1);
 }
 
-/* Ajuste para móviles (importante para que no se monten encima) */
 @media (max-width: 768px) {
-    .gallery-carousel-wrapper { height: 300px; }
-    
-    /* En móvil reducimos márgenes y tamaños */
-    .external-controls-container { padding: 15px 65px; }
-    .external-nav-arrow { width: 40px; height: 40px; }
-    .arrow-prev { left: 15px; }
-    .arrow-next { right: 15px; }
+    .gallery-carousel-wrapper {
+        height: 300px;
+    }
+
+    .external-controls-container {
+        padding: 15px 65px;
+    }
+
+    .external-nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow-prev {
+        left: 15px;
+    }
+
+    .arrow-next {
+        right: 15px;
+    }
 }
 
-/* ==========================================================================
-   AJUSTES RESPONSIVE PRO (Móvil y Tablet) Y ALINEACIÓN
-   ========================================================================== */
+/* =========================================
+   AJUSTES RESPONSIVE (Márgenes y Estructura)
+   ========================================= */
 
-/* 1. CONTENEDORES Y ESPACIADO LATERAL */
 @media (max-width: 991px) {
-    /* Ajustar el padding lateral exagerado de px-lg-5 en móviles */
     .px-lg-5 {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
-    
-    /* Reducir el espaciado vertical masivo */
+
     .py-6 {
         padding-top: 4rem !important;
         padding-bottom: 4rem !important;
     }
-}
 
-@media (max-width: 576px) {
-    /* En móviles pequeños, aún menos borde */
-    .px-lg-5 {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    .py-6 {
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
-    }
-}
-
-/* 2. TIPOGRAFÍA ADAPTATIVA (Para que los títulos no se salgan) */
-@media (max-width: 768px) {
-    h1.display-3, h1.display-4 {
-        font-size: 2.2rem !important; /* Títulos Hero más pequeños */
-        word-wrap: break-word;
-    }
-    
-    h2.display-5, h2.display-6 {
-        font-size: 1.8rem !important;
-    }
-    
-    .lead {
-        font-size: 1rem !important;
-    }
-}
-
-/* 3. HERO SECTIONS (Banners Principales) */
-@media (max-width: 991px) {
-    /* Evitar alturas fijas que cortan contenido en horizontal */
-    section[style*="height: 50vh"], 
+    section[style*="height: 50vh"],
     section[style*="height: 60vh"] {
         height: auto !important;
-        min-height: 350px !important; /* Altura mínima segura */
-        padding-top: 100px !important; /* Espacio para el menú */
+        min-height: 350px !important;
+        padding-top: 100px !important;
         padding-bottom: 50px !important;
     }
-}
 
-/* 4. ALINEACIÓN DE TARJETAS Y ZIG-ZAG */
-@media (max-width: 991px) {
-    /* En tablet/móvil, quitar márgenes negativos o desplazamientos */
     .gx-5 {
-        --bs-gutter-x: 0; /* Quitar espacio horizontal extra de Bootstrap */
+        --bs-gutter-x: 0;
     }
-    
-    /* Asegurar orden correcto: Imagen arriba, Texto abajo en móvil */
-    .order-lg-2 { order: 1 !important; margin-bottom: 30px; } /* Imagen */
-    .order-lg-1 { order: 2 !important; } /* Texto */
-    
-    /* Centrar textos en móvil para mejor equilibrio */
+
+    .order-lg-2 {
+        order: 1 !important;
+        margin-bottom: 30px;
+    }
+
+    .order-lg-1 {
+        order: 2 !important;
+    }
+
     .col-lg-6 {
         text-align: center !important;
     }
-    
-    /* Listas con check también centradas o alineadas */
+
     .list-unstyled {
         display: inline-block;
-        text-align: left; /* El texto de la lista a la izquierda, pero el bloque centrado */
-    }
-}
-
-/* 5. SLIDER / CARRUSEL EN MÓVIL */
-@media (max-width: 768px) {
-    .gallery-carousel-wrapper {
-        height: 300px !important; /* Más bajito en móvil */
-    }
-    
-    .gallery-carousel-wrapper img {
-        object-fit: contain !important; /* Que se vea toda la foto */
-        padding: 0 !important;
+        text-align: left;
     }
 
-    /* Controles más compactos */
-    .external-controls-container {
-        padding: 15px 20px !important; /* Menos espacio lateral */
-    }
-    
-    .external-nav-arrow {
-        width: 40px !important;
-        height: 40px !important;
-    }
-    
-    .arrow-prev { left: 10px !important; }
-    .arrow-next { right: 10px !important; }
-}
-
-/* 6. MENÚ DE NAVEGACIÓN (NAVBAR) */
-@media (max-width: 991px) {
+    /* Navbar Móvil */
     .navbar-collapse {
         background: #fff;
         position: absolute;
@@ -1197,35 +941,250 @@ html, body {
         left: 0;
         width: 100%;
         padding: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #eee;
-        max-height: 80vh; /* Evitar que sea más alto que la pantalla */
-        overflow-y: auto; /* Scroll si es necesario */
+        max-height: 80vh;
+        overflow-y: auto;
     }
-    
-    /* Centrar enlaces */
+
     .navbar-nav {
         text-align: center;
     }
-    
+
     .nav-item {
         margin: 10px 0;
     }
-    
-    /* Botón CTA ancho completo */
+
     .btn-cta-solid {
         display: block;
         width: 100%;
         margin-top: 15px;
     }
+
+    /* Logo Móvil */
+    .navbar {
+        height: auto !important;
+        min-height: 80px;
+        padding: 10px 0 !important;
+    }
+
+    .navbar-brand img {
+        height: 50px !important;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
 }
 
-/* 7. REGLA MAESTRA PARA OCULTAR CURSOR EN TÁCTIL (iPad, iPhone, Android) */
-@media (hover: none) and (pointer: coarse) {
-    .cursor-dot, .cursor-outline {
-        display: none !important;
+@media (max-width: 768px) {
+
+    h1.display-3,
+    h1.display-4 {
+        font-size: 2.2rem !important;
+        word-wrap: break-word;
     }
-    body {
-        cursor: auto !important;
+
+    h2.display-5,
+    h2.display-6 {
+        font-size: 1.8rem !important;
     }
+
+    .lead {
+        font-size: 1rem !important;
+    }
+
+    .hero-content p.lead {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .hero-slider,
+    .carousel-item {
+        height: 65vh;
+        min-height: 400px;
+    }
+}
+
+/* =========================================
+   FIX FOOTER MÓVIL DEFINITIVO
+   ========================================= */
+
+@media (max-width: 991px) {
+
+    /* 1. Contenedor Principal: Centrado */
+    .footer-wrapper {
+        text-align: center !important;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* 2. FORZAR COLUMNAS AL 100% PARA EVITAR HUECOS RAROS (SOLUCIÓN CLAVE) */
+    .footer-wrapper .col-6,
+    .footer-wrapper .col-lg-2,
+    .footer-wrapper .col-lg-4 {
+        width: 100% !important;
+        /* Cada bloque ocupará toda la línea */
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-bottom: 40px;
+        /* Separación vertical limpia */
+        display: grid;
+    }
+
+    /* 3. Limpiar márgenes ocultos de las listas */
+    .footer-wrapper ul {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        list-style: none;
+    }
+
+    /* 4. Títulos */
+    .footer-heading {
+        display: inline-block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    /* 5. Lista de Contacto */
+    .footer-contact li {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 25px !important;
+    }
+
+    .footer-contact li i {
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.05);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 6. Enlaces */
+    .footer-links a {
+        display: block;
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+
+    /* 7. Redes Sociales */
+    .social-icons {
+        justify-content: center !important;
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .social-icons a {
+        margin: 0 !important;
+    }
+
+    /* 8. Copyright */
+    .copyright-row div {
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+}
+
+/* === COOKIES BARRA INFERIOR (CORREGIDO: Cursor Visible) === */
+
+.cookie-bar-bottom {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 0;
+    
+    /* CAMBIO CLAVE: Bajamos el z-index para que el cursor (que es más alto) pase por encima */
+    z-index: 99990 !important; 
+    
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.cookie-bar-bottom.show {
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.cookie-content-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cookie-text p { font-size: 0.9rem; color: #fff; margin: 0; }
+.cookie-text a { color: #fff; text-decoration: underline; font-weight: bold; }
+
+.cookie-buttons { display: flex; gap: 10px; align-items: center; }
+
+/* Botones del Banner */
+.cookie-buttons .btn-link { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; }
+.cookie-buttons .btn-link:hover { color: #fff; text-decoration: underline; cursor: pointer; }
+
+.cookie-buttons .btn-outline-light { border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem; padding: 5px 15px; cursor: pointer; }
+.cookie-buttons .btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+.cookie-buttons .btn-light { background: #fff; color: var(--primary-color); border: none; font-weight: bold; font-size: 0.85rem; padding: 5px 20px; cursor: pointer; }
+.cookie-buttons .btn-light:hover { background: #f0f0f0; }
+
+/* === MODAL CONFIGURACIÓN === */
+.cookie-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); 
+    
+    /* CAMBIO CLAVE: Encima del banner, pero debajo del cursor */
+    z-index: 99995; 
+    
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: 0.3s;
+    backdrop-filter: blur(2px);
+}
+.cookie-modal-overlay.open { opacity: 1; visibility: visible; }
+
+.cookie-modal-box {
+    background: #fff; width: 450px; max-width: 90%; padding: 25px;
+    border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.modal-header h5 { margin: 0; color: var(--primary-color); font-weight: 700; }
+.close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #999; }
+
+.cookie-option { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-weight: 600; font-size: 0.95rem;}
+
+/* Switch */
+.switch { position: relative; display: inline-block; width: 40px; height: 22px; cursor: pointer; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary-color); }
+input:checked + .slider:before { transform: translateX(18px); }
+.switch.disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Móvil */
+@media (max-width: 768px) {
+    .cookie-content-flex { flex-direction: column; text-align: left; align-items: flex-start; }
+    .cookie-buttons { width: 100%; justify-content: space-between; }
+    .cookie-buttons button { flex: 1; }
 }
