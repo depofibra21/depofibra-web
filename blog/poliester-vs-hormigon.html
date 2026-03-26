@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog de Depofibra | Guías Técnicas y Consejos de Poliéster</title>
-    <meta name="description" content="Aprende sobre depósitos, fosas sépticas y piscinas en el blog oficial de Depofibra.">
+    <title>Poliéster vs Hormigón: ¿Cuál es mejor para depósitos y fosas? | Depofibra</title>
+    <meta name="description" content="Comparativa técnica: Ventajas del poliéster (PRFV) frente al hormigón en durabilidad, estanqueidad y precio para depósitos y fosas sépticas.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,31 +16,12 @@
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
     <style>
-        .blog-section { padding: 80px 0; background: #fff; }
-        .blog-card { 
-            border: 1px solid #eee; 
-            transition: all 0.3s ease; 
-            height: 100%; /* Obligatorio para igualar alturas */
-            display: flex; 
-            flex-direction: column; 
-            overflow: hidden;
-            position: relative; /* CRUCIAL para stretched-link */
-            cursor: pointer;
-        }
-        .blog-card:hover { 
-            border-color: #01488e; 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-        }
-        .blog-card img { 
-            width: 100%; 
-            height: 220px; /* Altura fija para todas las imágenes */
-            object-fit: cover; /* Recorta la imagen sin deformarla */
-        }
-        .blog-card-body { padding: 25px; flex-grow: 1; }
-        .blog-category { color: #01488e; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .blog-title { font-size: 1.3rem; margin: 10px 0; font-weight: 500; color: #111; line-height: 1.4; }
-        .stretched-link::after { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; content: ""; }
+        .post-content { padding: 80px 0; line-height: 1.8; color: #444; }
+        .post-content h1 { color: #01488e; margin-bottom: 30px; font-weight: 500; }
+        .post-content h2 { color: #111; margin-top: 40px; margin-bottom: 20px; font-size: 1.8rem; }
+        .post-header-img { width: 100%; height: 450px; object-fit: cover; border-radius: 4px; margin-bottom: 40px; }
+        .cta-box { background: #f8f9fa; padding: 30px; border-left: 5px solid #01488e; margin: 40px 0; }
+        .vs-box { background: #01488e; color: white; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0; }
     </style>
 </head>
 <body>
@@ -51,10 +32,12 @@
     <header class="fixed-top header-wrapper">
         <div class="top-bar py-2" style="background-color: #01488e; color: white;">
             <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
-                <div class="d-none d-md-block tracking-1 small">
+                <div class="d-none d-md-block tracking-1">
                     <i class="fas fa-envelope me-2"></i> depofibra21@gmail.com
+                    <span class="mx-3 opacity-50">|</span>
+                    <i class="fas fa-truck me-2"></i> Envíos a toda España y Portugal
                 </div>
-                <div class="ms-auto tracking-1 small">
+                <div class="ms-auto tracking-1">
                     <a href="https://wa.me/34642129233" style="color: white; text-decoration: none;">
                         <i class="fab fa-whatsapp me-2"></i> ¿Hablamos? +34 642 12 92 33
                     </a>
@@ -73,11 +56,11 @@
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">Productos</a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Productos</a>
                             <ul class="dropdown-menu border-0 shadow-sm rounded-0">
                                 <li><a class="dropdown-item" href="../piscinas.html">Piscinas</a></li>
-                                <li><a class="dropdown-item" href="../cisternas.html">Cubas</a></li>
-                                <li><a class="dropdown-item" href="../fosas.html">Fosas</a></li>
+                                <li><a class="dropdown-item" href="../cisternas.html">Cubas y Cisternas</a></li>
+                                <li><a class="dropdown-item" href="../fosas.html">Fosas Sépticas</a></li>
                                 <li><hr class="dropdown-divider opacity-10"></li>
                                 <li><a class="dropdown-item" href="../depositos-verticales.html">Verticales</a></li>
                                 <li><a class="dropdown-item" href="../depositos-horizontales.html">Horizontales</a></li>
@@ -86,82 +69,56 @@
                         <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="../sobre-nosotros.html">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
-                        <li class="nav-item ms-lg-4"><a href="https://wa.me/34642129233" class="btn btn-cta-solid rounded-0 text-white">Pedir Presupuesto</a></li>
+                        <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                            <a href="https://wa.me/34642129233" class="btn btn-cta-solid rounded-0 text-white">Pedir Presupuesto</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section class="py-5" style="background: #f8f9fa; margin-top: 100px;">
-        <div class="container text-center py-5">
-            <h1 class="display-4 fw-light">Nuestro <span class="fw-medium">Blog</span></h1>
-            <p class="text-muted mx-auto" style="max-width: 600px;">Consejos técnicos y guías prácticas sobre poliéster reforzado.</p>
-        </div>
-    </section>
-
-    <section class="blog-section">
+    <main class="post-content" style="margin-top: 150px;">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-                
-                <div class="col">
-                    <div class="blog-card" data-aos="fade-up">
-                        <img src="../images/fosaseptica.jpg" alt="Fosa Séptica de Poliéster">
-                        <div class="blog-card-body">
-                            <span class="blog-category">Tratamiento Aguas</span>
-                            <h2 class="blog-title">¿Cuánto cuesta una fosa séptica?</h2>
-                            <p class="small text-muted mb-4">Guía de precios y modelos para elegir la fosa ideal según tu vivienda.</p>
-                            <a href="precio-fosa-septica-poliester.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9" data-aos="fade-up">
+                    <h1>Poliéster vs Hormigón: ¿Cuál elegir para tu instalación?</h1>
+                    
+                    <img src="../images/fabricación.jpg" class="post-header-img" alt="Comparativa Poliéster vs Hormigón">
 
-                <div class="col">
-                    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="../images/verticalBasePlana.jpg" alt="Depósitos de poliéster">
-                        <div class="blog-card-body">
-                            <span class="blog-category">Materiales</span>
-                            <h2 class="blog-title">Poliéster vs Plástico</h2>
-                            <p class="small text-muted mb-4">Comparamos durabilidad, resistencia y costes reales de ambos materiales.</p>
-                            <a href="depositos-poliester-vs-plastico.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
-                        </div>
-                    </div>
-                </div>
+                    <p>Cuando se plantea la instalación de una fosa séptica o un depósito de gran capacidad, surge la duda: ¿Hormigón o Poliéster? Aunque el hormigón ha sido el material tradicional, el <strong>Poliéster Reforzado con Fibra de Vidrio (PRFV)</strong> ha ganado la partida gracias a su tecnología superior.</p>
 
-                <div class="col">
-                    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="../images/piscina.jpg" alt="Mantenimiento piscina poliéster">
-                        <div class="blog-card-body">
-                            <span class="blog-category">Mantenimiento</span>
-                            <h2 class="blog-title">Cuidado de Piscinas de Fibra</h2>
-                            <p class="small text-muted mb-4">Guía paso a paso para mantener el agua cristalina todo el año.</p>
-                            <a href="mantenimiento-piscina-poliester.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
-                        </div>
+                    <div class="vs-box">
+                        <h3 class="text-white mb-0">Flexibilidad vs Rigidez</h3>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="../images/fabricación.jpg" alt="Poliéster vs Hormigón">
-                        <div class="blog-card-body">
-                            <span class="blog-category">Comparativas</span>
-                            <h2 class="blog-title">Poliéster o Hormigón</h2>
-                            <p class="small text-muted mb-4">Analizamos cuál es la opción más rentable para depósitos y fosas.</p>
-                            <a href="poliester-vs-hormigon.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
-                        </div>
+                    <h2>1. Estanqueidad total</h2>
+                    <p>El hormigón es un material poroso. Con los años, los movimientos del terreno generan microfisuras que provocan filtraciones indeseadas. El poliéster de Depofibra se fabrica en una sola pieza (monobloque), lo que garantiza una <strong>estanqueidad del 100%</strong> durante toda su vida útil.</p>
+
+                    <h2>2. Instalación rápida y económica</h2>
+                    <p>Construir o instalar un depósito de hormigón requiere maquinaria pesada, encofrados y días de fraguado. Una pieza de poliéster llega terminada de fábrica y se instala en cuestión de horas. Esto supone un ahorro drástico en mano de obra y tiempo de ejecución.</p>
+
+                    <div class="cta-box">
+                        <h4>¿Dudas con tu proyecto?</h4>
+                        <p>Analizamos las necesidades de tu finca o industria para recomendarte la mejor solución en poliéster.</p>
+                        <a href="../contacto.html" class="btn btn-primary rounded-0">Consultar con un Técnico</a>
                     </div>
-                </div>
 
+                    <h2>3. Resistencia química y limpieza</h2>
+                    <p>La superficie interior del poliéster es lisa y lisa (Gelcoat), lo que impide que bacterias o cal se incrusten. En el hormigón, la rugosidad facilita la acumulación de residuos y hace que la limpieza sea mucho más compleja y costosa.</p>
+
+                    <p><strong>Veredicto:</strong> Por durabilidad, peso ligero y facilidad de mantenimiento, el poliéster es la inversión más inteligente para el almacenamiento de líquidos hoy en día.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer id="contacto" class="footer-wrapper">
         <div class="container">
             <div class="row gy-5 border-bottom border-white-10 pb-5 mb-4">
 
                 <div class="col-lg-4 text-center text-lg-start">
-                    <a href="#" class="footer-logo d-inline-block mb-4 text-decoration-none">
+                    <a href="../index.html" class="footer-logo d-inline-block mb-4 text-decoration-none">
                         DEPO<span class="fw-bold">FIBRA</span><span class="dot">.</span>
                     </a>
                     <p class="footer-desc pe-lg-5">
