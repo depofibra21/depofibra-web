@@ -20,12 +20,13 @@
         .blog-card { 
             border: 1px solid #eee; 
             transition: all 0.3s ease; 
-            height: 100%; /* Obligatorio para igualar alturas */
+            height: 100%; 
             display: flex; 
             flex-direction: column; 
             overflow: hidden;
-            position: relative; /* CRUCIAL para stretched-link */
+            position: relative; 
             cursor: pointer;
+            background: #fff;
         }
         .blog-card:hover { 
             border-color: #01488e; 
@@ -34,12 +35,12 @@
         }
         .blog-card img { 
             width: 100%; 
-            height: 220px; /* Altura fija para todas las imágenes */
-            object-fit: cover; /* Recorta la imagen sin deformarla */
+            height: 220px; 
+            object-fit: cover; 
         }
-        .blog-card-body { padding: 25px; flex-grow: 1; }
+        .blog-card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .blog-category { color: #01488e; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .blog-title { font-size: 1.3rem; margin: 10px 0; font-weight: 500; color: #111; line-height: 1.4; }
+        .blog-title { font-size: 1.25rem; margin: 10px 0; font-weight: 600; color: #111; line-height: 1.4; }
         .stretched-link::after { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; content: ""; }
     </style>
 </head>
@@ -86,7 +87,9 @@
                         <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="../sobre-nosotros.html">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
-                        <li class="nav-item ms-lg-4"><a href="https://wa.me/34642129233" class="btn btn-cta-solid rounded-0 text-white">Pedir Presupuesto</a></li>
+                        <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                            <a href="https://wa.me/34642129233" class="btn btn-cta-solid rounded-0 text-white">Pedir Presupuesto</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -102,11 +105,11 @@
 
     <section class="blog-section">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
                 <div class="col">
                     <div class="blog-card" data-aos="fade-up">
-                        <img src="../images/fosaseptica.jpg" alt="Fosa Séptica de Poliéster">
+                        <img src="../images/fosaseptica.jpg" alt="Precio Fosa Séptica">
                         <div class="blog-card-body">
                             <span class="blog-category">Tratamiento Aguas</span>
                             <h2 class="blog-title">¿Cuánto cuesta una fosa séptica?</h2>
@@ -121,16 +124,28 @@
                         <img src="../images/VERTICAL BASE PLANA DE PIE.jpg" alt="Depósitos de poliéster">
                         <div class="blog-card-body">
                             <span class="blog-category">Materiales</span>
-                            <h2 class="blog-title">Poliéster vs Plástico</h2>
+                            <h2 class="blog-title">Poliéster vs Plástico PEHD</h2>
                             <p class="small text-muted mb-4">Comparamos durabilidad, resistencia y costes reales de ambos materiales.</p>
-                            <a href="depositos-poliester-vs-plastico.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
+                            <a href="poliester-vs-plastico-pehd.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="../images/piscina.jpg" alt="Mantenimiento piscina poliéster">
+                        <img src="../images/fosaseptica.jpg" alt="Normativa Fosas">
+                        <div class="blog-card-body">
+                            <span class="blog-category">Legal</span>
+                            <h2 class="blog-title">Normativa de Vertidos 2026</h2>
+                            <p class="small text-muted mb-4">Todo lo que necesitas saber para que tu fosa séptica sea legal hoy mismo.</p>
+                            <a href="normativa-fosas-septicas-2026.html" class="stretched-link text-primary fw-bold small">Leer artículo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="blog-card" data-aos="fade-up">
+                        <img src="../images/piscina.jpg" alt="Mantenimiento piscina">
                         <div class="blog-card-body">
                             <span class="blog-category">Mantenimiento</span>
                             <h2 class="blog-title">Cuidado de Piscinas de Fibra</h2>
@@ -141,7 +156,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
                         <img src="../images/fabricación.jpg" alt="Poliéster vs Hormigón">
                         <div class="blog-card-body">
                             <span class="blog-category">Comparativas</span>
@@ -151,17 +166,18 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-    <div class="blog-card" data-aos="fade-up">
-        <img src="../images/fabricación.jpg" alt="Fabricación PRFV">
-        <div class="blog-card-body">
-            <span class="blog-category">Autoridad Técnica</span>
-            <h2 class="blog-title">La Guía Definitiva del PRFV</h2>
-            <p class="small text-muted mb-4">Todo lo que necesitas saber sobre el material que está revolucionando la industria del poliéster.</p>
-            <a href="guia-tecnica-prfv.html" class="stretched-link text-primary fw-bold small">Leer guía técnica</a>
-        </div>
-    </div>
-</div>
+                    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="../images/verticalBasePlana.jpg" alt="Guía PRFV">
+                        <div class="blog-card-body">
+                            <span class="blog-category">Autoridad Técnica</span>
+                            <h2 class="blog-title">La Guía Definitiva del PRFV</h2>
+                            <p class="small text-muted mb-4">Todo lo que necesitas saber sobre el material que revoluciona el sector.</p>
+                            <a href="guia-tecnica-prfv.html" class="stretched-link text-primary fw-bold small">Leer guía técnica</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -170,62 +186,39 @@
     <footer id="contacto" class="footer-wrapper">
         <div class="container">
             <div class="row gy-5 border-bottom border-white-10 pb-5 mb-4">
-
                 <div class="col-lg-4 text-center text-lg-start">
-                    <a href="#" class="footer-logo d-inline-block mb-4 text-decoration-none">
-                        DEPO<span class="fw-bold">FIBRA</span><span class="dot">.</span>
-                    </a>
-                    <p class="footer-desc pe-lg-5">
-                        Líderes en soluciones de poliéster reforzado. Transformamos espacios y optimizamos recursos
-                        hídricos con elegancia industrial.
-                    </p>
+                    <a href="../index.html" class="footer-logo d-inline-block mb-4 text-decoration-none">DEPO<span class="fw-bold">FIBRA</span><span class="dot">.</span></a>
+                    <p class="footer-desc pe-lg-5">Líderes en soluciones de poliéster reforzado. Transformamos espacios con elegancia industrial.</p>
                 </div>
-
                 <div class="col-lg-2 col-6 text-center text-lg-start">
                     <h6 class="footer-heading">Explorar</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#">Piscinas</a></li>
-                        <li><a href="#">Depósitos</a></li>
-                        <li><a href="#">Cisternas</a></li>
-                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="../piscinas.html">Piscinas</a></li>
+                        <li><a href="../depositos-verticales.html">Depósitos</a></li>
+                        <li><a href="../cisternas.html">Cisternas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-2 col-6 text-center text-lg-start">
                     <h6 class="footer-heading">Legal & Ayuda</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="aviso-legal.html">Aviso Legal</a></li>
-                        <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="cookies.html">Política de Cookies</a></li>
-                        <li><a href="accesibilidad.html">Accesibilidad</a></li>
-                        <li><a href="#">Envíos y Garantías</a></li>
+                        <li><a href="../aviso-legal.html">Aviso Legal</a></li>
+                        <li><a href="../politica-privacidad.html">Privacidad</a></li>
+                        <li><a href="../cookies.html">Cookies</a></li>
+                        <li><a href="../accesibilidad.html">Accesibilidad</a></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-4 text-center text-lg-start">
                     <h6 class="footer-heading">Contacto</h6>
                     <ul class="list-unstyled footer-contact">
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <a href="tel:+34642129233">+34 642 12 92 33</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:depofibra21@gmail.com">depofibra21@gmail.com</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Envíos a toda España</span>
-                        </li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+34642129233">+34 642 12 92 33</a></li>
+                        <li><i class="fas fa-envelope"></i> depofibra21@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Envíos a toda España</span></li>
                     </ul>
                 </div>
-
             </div>
-
             <div class="row align-items-center small text-white-50 copyright-row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; 2025 Depofibra S.L. Todos los derechos reservados.
-                </div>
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">&copy; 2026 Depofibra S.L. Todos los derechos reservados.</div>
                 <div class="col-md-6 text-center text-md-end social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -234,6 +227,8 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/34642129233" class="whatsapp-float" target="_blank" style="position:fixed; width:60px; height:60px; bottom:40px; right:40px; background-color:#25d366; color:#FFF; border-radius:50px; text-align:center; font-size:30px; box-shadow: 2px 2px 3px #999; z-index:1000;"><i class="fab fa-whatsapp" style="margin-top:16px;"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
