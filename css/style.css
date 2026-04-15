@@ -1219,3 +1219,19 @@ input:checked + .slider:before { transform: translateX(18px); }
     .cookie-buttons { width: 100%; justify-content: space-between; }
     .cookie-buttons button { flex: 1; }
 }
+
+/* EFECTO PULSO PARA EL BOTÓN DE WHATSAPP */
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+  animation: pulse-green 2s infinite;
+}
+
+/* Mejora del botón en la barra móvil */
+.btn-success.rounded-pill {
+    animation: pulse-green 2s infinite;
+}
